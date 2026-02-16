@@ -1,3 +1,6 @@
+- a script is a program meant to run and do a job. In Python, scripts are saved as .py
+- a source code is the human readable text you write ( the code ). Is the instructions python follows before it runs your program.
+-
 - print() is a python function(instruction) that displays text on the screen. 
 - a string literal is the text inside the quotes, like "Hello dude!" Python treats it as data, not as a command. The command is the whole line: print("Hello dude!")
 - an argument is the actual value i give to the function when i call it?
