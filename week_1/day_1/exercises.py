@@ -5,18 +5,17 @@ print("I am inside a .py file, wow")
 print("This is a string literal, literally what I'm writing between quotes right now, is the string literal")
 
 #This is a comment. Python ignores it - this help humans understand what the code does, what to watch out for.
+#A comment can explain why something exists.
 
 #Example of syntax error: must be kept as a comment, so we can still run the file. 
 #print("This string is missing the closin quote) 
-
 print("This is the corrected version that can run") 
-
 #runtime error example
 print("This line runs.")
 #If you uncomment the next line, Python will crash while running ( runtime error ). 
 #print(Hello)
-
 print("Keeping the broken line commented let's the script run")
+
 
 #Example 1:
 print("Hello, data engineering world!")
