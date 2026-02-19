@@ -23,3 +23,8 @@ print(type(price))
 print(type(first_name))
 print(type(day))
 print(type(is_discounted))
+
+rows = 120
+rate = "0.95"
+valid = int(rows * float(rate))
+print(valid)
