@@ -33,3 +33,33 @@ print(8 + 2 * 5) #predicting 18
 print("\n")
 print("Drill 4:")
 print((8 + 2) * 5) #predicting 50
+
+print("\n")
+print("Semi-guided drills")
+print("Drill 1:")
+
+bill = 42.50
+tip_rate = 0.15
+
+tip = bill * tip_rate
+total = bill + tip
+
+print(f"Bill: ${bill:.2f}")
+print(f"Tip: ${tip:.2f}")
+print(f"Total: ${total:.2f}")
+
+print("\n")
+print("Drill 2:")
+
+items = 53
+box_size = 6
+
+full_boxes = items // box_size
+leftover_items = items % box_size
+
+print(f"Full boxes:{full_boxes}")
+print(f"Leftover items:{leftover_items}")
+
+#Add one final print line combining both results in a single sentence
+
+print(f"There are {full_boxes} full boxes, with {leftover_items} leftover items.")
