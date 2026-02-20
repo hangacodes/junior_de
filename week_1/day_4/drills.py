@@ -58,3 +58,37 @@ print(last_char)
 
 alphabet = "ABCDE"
 print(alphabet[1:4])
+print("\n")
+
+#Semi-guided drills
+'''**Goal:** Parse a fixed-format record with known separator positions.
+
+
+**Your tasks:**
+
+1. Add `record_len = len(record)` and print it as `record_len=...`
+2. Create `last_char = record[len(record) - 1]` and print it as `last_char=...`
+3. Create `user_num = user_id[3:7]` and print it as `user_num=...`'''
+
+#Starter code:
+
+record = "USR0007|Berlin|2026-02-09"
+
+user_id = record[0:7]
+city    = record[8:14]
+date    = record[15:25]
+
+year  = date[0:4]
+month = date[5:7]
+day   = date[8:10]
+
+record_len = len(record)
+last_char = record[len(record)-1]
+user_num = user_id[3:7]
+
+print(f"user_id={user_id}")
+print(f"city={city}")
+print(f"date={year}-{month}-{day}")
+print(record_len)
+print(last_char)
+print(user_num)
