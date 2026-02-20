@@ -9,7 +9,7 @@ Format is always: City (3 chars) + dash + Date (8 chars, YYYYMMDD) + dash + Tick
 
 '''
 
-code1 = "MSK-19950426-1111"
+code1 = "MSK-19950426-1118"
 code2 = "OMR-19950823-2222"
 code3 = "MIA-20230305-6969"
 
@@ -28,6 +28,8 @@ ticket_id3 = code3[13:]
 ticket_last_digit1 = code1[-1]
 ticket_last_digit2 = code2[-1]
 ticket_last_digit3 = code3[-1]
+print(len(code1))
+print(code1[16])
 print(city1)
 print(city2)
 print(city3)
