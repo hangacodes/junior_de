@@ -1,5 +1,9 @@
-print("Hello, data engineering!")
+print("Hello! Data Engineering world")
 
-print("How does this work?")
+print("My name is Cristian and I'm learning how to code starting today")
 
-print("Trying to see what commit actually does")
+print("This is Day 1. And I'm excited to learn something new.")
+
+
+#This is a comment, and the ones above are print statements? IDFK
+
