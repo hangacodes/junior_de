@@ -53,8 +53,11 @@ print(f"Ends with '_id': {clean_raw4.endswith(".csv")}")
 
 #Finished and I think it looks pretty good. I did not check the solution yet.
 
+#Looks like the solution provided by the lesson is way shorter, I tried to make it look good, not sure which one is considered better or wrong.
 
-#Attaching the solution from the lesson below. Are there any big differences, or differences that are concerning ?
+#Attaching the solution from the lesson below.
+
+#Is my deliverable not good enough? Is it too long? Should I adopt the other way, of writing everything very concised?
 '''
 raw1 = "   User ID   "
 raw2 = "Email-Address"
@@ -87,20 +90,3 @@ print(f"{c4}: underscores={c4.count('_')}, ends_id={c4.endswith('_id')}, events_
 #    this properly (coming in Week 3).
 '''
 
-# This repeats 4x — for loops (Week 3) will collapse this to ~6 lines.
-c1 = raw1.strip().lower().replace("-", "_").replace(" ", "_").replace("__", "_")
-c2 = raw2.strip().lower().replace("-", "_").replace(" ", "_").replace("__", "_")
-c3 = raw3.strip().lower().replace("-", "_").replace(" ", "_").replace("__", "_")
-c4 = raw4.strip().lower().replace("-", "_").replace(" ", "_").replace("__", "_")
-
-print("---- CLEANED ----")
-print(c1)
-print(c2)
-print(c3)
-print(c4)
-
-print("---- DIAGNOSTICS ----")
-print(f"{c1}: underscores={c1.count('_')}, ends_id={c1.endswith('_id')}, events_at={c1.find('events')}")
-print(f"{c2}: underscores={c2.count('_')}, ends_id={c2.endswith('_id')}, events_at={c2.find('events')}")
-print(f"{c3}: underscores={c3.count('_')}, ends_csv={c3.endswith('.csv')}, events_at={c3.find('events')}")
-print(f"{c4}: underscores={c4.count('_')}, ends_id={c4.endswith('_id')}, events_at={c4.find('events')}")
