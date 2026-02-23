@@ -56,4 +56,5 @@ print(f"  Status     : {r1_status.upper()}")
 
 #Took me 28 minutes so far with the instructions
 
-
+csv_r1 = ",".join([pipe_id, job_name, run_date, start_time, str(duration_seconds), str(r1_rows), r1_status])
+print(csv_r1)
