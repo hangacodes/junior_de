@@ -1,6 +1,6 @@
 #pipe_id | job_name | run_date | start_time | duration_seconds | rows_processed_label | status
 
-# r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
+#r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
 #r2 = "  PIPE-02 | etl_orders    | 2026-02-09 | 06:02:15 |  203 | rows= 12450 |   SUCCESS  "
 #r3 = "  PIPE-03 | etl_products  | 2026-02-09 | 06:05:38 |   45 | rows=   891 |    WARN    "
 #r4 = "PIPE-04|etl_events|2026-02-09|06:06:23|  3782 | rows=99103|FAILED"
@@ -46,7 +46,7 @@ print(duration_minutes)
 print(leftover_seconds)
 
 
-print("╔══════════════════════════════════════╗")
+print("\n╔══════════════════════════════════════╗")
 print(f"║ {pipe_id}  |  {job_name}            ║")
 print("╚══════════════════════════════════════╝")
 print(f"  Run date   : {r1_year}/{r1_month}/{r1_day} ")
@@ -88,7 +88,7 @@ r2_day = run_date2[8:10]
 duration_minutes2 = duration_seconds2 // 60
 leftover_seconds2 = duration_seconds2 % 60
 print("──────────────────────────────────────────")
-print("╔══════════════════════════════════════╗")
+print("\n╔══════════════════════════════════════╗")
 print(f"║ {pipe_id2}  |  {job_name2}               ║")
 print("╚══════════════════════════════════════╝")
 print(f"  Run date   : {r2_year}/{r2_month}/{r2_day} ")
@@ -128,7 +128,7 @@ r3_day = run_date3[8:10]
 duration_minutes3 = duration_seconds3 // 60
 leftover_seconds3 = duration_seconds3 % 60
 print("──────────────────────────────────────────")
-print("╔══════════════════════════════════════╗")
+print("\n╔══════════════════════════════════════╗")
 print(f"║ {pipe_id3}  |  {job_name3}             ║")
 print("╚══════════════════════════════════════╝")
 print(f"  Run date   : {r3_year}/{r3_month}/{r3_day} ")
@@ -167,7 +167,7 @@ r4_day = run_date4[8:10]
 duration_minutes4 = duration_seconds4 // 60
 leftover_seconds4 = duration_seconds4 % 60
 print("──────────────────────────────────────────")
-print("╔══════════════════════════════════════╗")
+print("\n╔══════════════════════════════════════╗")
 print(f"║ {pipe_id4}  |  {job_name4}               ║")
 print("╚══════════════════════════════════════╝")
 print(f"  Run date   : {r4_year}/{r4_month}/{r4_day} ")
@@ -177,3 +177,20 @@ print(f"  Rows read  : {r4_rows:,}")
 print(f"  Status     : {r4_status.upper()}")
 csv_r4 = ",".join([pipe_id4, job_name4, run_date4, start_time4, str(duration_seconds4), str(r4_rows), r4_status])
 print(csv_r4)
+
+#starting phase 5 after 47 minutes
+total_rows = r1_rows + r2_rows + r3_rows + r4_rows
+total_duration = duration_seconds + duration_seconds2 + duration_seconds3 + duration_seconds4
+total_minutes =total_duration // 60
+total_leftover_seconds = total_duration % 60
+statuses = " ".join([r1_status.upper(), r2_status.upper(), r3_status.upper(), r4_status.upper()])
+
+print("──────────────────────────────────────────")
+print("\n══════════════════════════════════════════")
+print("NIGHTLY RUN SUMMARY — 2026-02-09")
+print("══════════════════════════════════════════")
+print(f"Total pipelines : 4")
+print(f"Total rows read : {total_rows:,}")
+print(f"Total duration  : {total_duration:,}s  ({total_minutes}m {total_leftover_seconds}s)")
+print(f"Statuses        : {statuses}")
+print("══════════════════════════════════════════")
