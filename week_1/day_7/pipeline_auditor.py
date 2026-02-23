@@ -43,3 +43,17 @@ print(r1_day)
 
 print(duration_minutes)
 print(leftover_seconds)
+
+
+print("╔══════════════════════════════════════╗")
+print(f"║ {pipe_id}  |  {job_name}            ║")
+print("╚══════════════════════════════════════╝")
+print(f"  Run date   : {r1_year}/{r1_month}/{r1_day} ")
+print(f"  Start time : {start_time}")
+print(f"  Duration   : {duration_minutes}m {leftover_seconds}s")
+print(f"  Rows read  : {r1_rows:,}")
+print(f"  Status     : {r1_status.upper()}")
+
+#Took me 28 minutes so far with the instructions
+
+
