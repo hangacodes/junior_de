@@ -95,4 +95,4 @@ Given `total_seconds = 9847`:
 
 File: `w1d7_sc05.py`
 
-'''
+''' 
