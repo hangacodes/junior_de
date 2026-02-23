@@ -1,10 +1,11 @@
 #pipe_id | job_name | run_date | start_time | duration_seconds | rows_processed_label | status
 
-r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
-r2 = "  PIPE-02 | etl_orders    | 2026-02-09 | 06:02:15 |  203 | rows= 12450 |   SUCCESS  "
+# r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
+#r2 = "  PIPE-02 | etl_orders    | 2026-02-09 | 06:02:15 |  203 | rows= 12450 |   SUCCESS  "
 r3 = "  PIPE-03 | etl_products  | 2026-02-09 | 06:05:38 |   45 | rows=   891 |    WARN    "
 r4 = "PIPE-04|etl_events|2026-02-09|06:06:23|  3782 | rows=99103|FAILED"
 
+r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
 parts = r1.split("|")
 
 pipe_id  = parts[0].strip()
@@ -58,3 +59,42 @@ print(f"  Status     : {r1_status.upper()}")
 
 csv_r1 = ",".join([pipe_id, job_name, run_date, start_time, str(duration_seconds), str(r1_rows), r1_status])
 print(csv_r1)
+
+#starting Phase 4 after 32 minutes
+r2 = "  PIPE-02 | etl_orders    | 2026-02-09 | 06:02:15 |  203 | rows= 12450 |   SUCCESS  "
+parts2 = r2.split("|")
+
+pipe_id2  = parts2[0].strip()
+job_name2 = parts2[1].strip()
+run_date2 = parts2[2].strip()
+start_time2 = parts2[3].strip()
+duration_seconds2 = int(parts2[4].strip())
+rows_label2 = parts2[5].strip()              
+status_raw2 = parts2[6].strip()
+
+#Extracting the numeric part of rows_laber and casting it to int
+numeric_rows2 = rows_label2.split("=")
+r2_rows = int(numeric_rows2[1].strip())
+
+#Normalizing status to lowercase and stripped
+r2_status = status_raw2.lower().strip()
+
+#parsing run_date into year month and day
+r2_year = run_date2[:4]
+r2_month = run_date2[5:7]
+r2_day = run_date2[8:10]
+
+#computing duration minutes and leftover seconds
+duration_minutes2 = duration_seconds2 // 60
+leftover_seconds2 = duration_seconds2 % 60
+print("──────────────────────────────────────────")
+print("╔══════════════════════════════════════╗")
+print(f"║ {pipe_id2}  |  {job_name2}               ║")
+print("╚══════════════════════════════════════╝")
+print(f"  Run date   : {r2_year}/{r2_month}/{r2_day} ")
+print(f"  Start time : {start_time2}")
+print(f"  Duration   : {duration_minutes2}m {leftover_seconds2}s")
+print(f"  Rows read  : {r2_rows:,}")
+print(f"  Status     : {r2_status.upper()}")
+csv_r2 = ",".join([pipe_id2, job_name2, run_date2, start_time2, str(duration_seconds2), str(r2_rows), r2_status])
+print(csv_r2)
