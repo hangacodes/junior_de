@@ -2,8 +2,8 @@
 
 # r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
 #r2 = "  PIPE-02 | etl_orders    | 2026-02-09 | 06:02:15 |  203 | rows= 12450 |   SUCCESS  "
-r3 = "  PIPE-03 | etl_products  | 2026-02-09 | 06:05:38 |   45 | rows=   891 |    WARN    "
-r4 = "PIPE-04|etl_events|2026-02-09|06:06:23|  3782 | rows=99103|FAILED"
+#r3 = "  PIPE-03 | etl_products  | 2026-02-09 | 06:05:38 |   45 | rows=   891 |    WARN    "
+#r4 = "PIPE-04|etl_events|2026-02-09|06:06:23|  3782 | rows=99103|FAILED"
 
 r1 = "  PIPE-01 | etl_customers | 2026-02-09 | 06:00:00 |  127 | rows=  8420 |   SUCCESS  "
 parts = r1.split("|")
@@ -98,3 +98,82 @@ print(f"  Rows read  : {r2_rows:,}")
 print(f"  Status     : {r2_status.upper()}")
 csv_r2 = ",".join([pipe_id2, job_name2, run_date2, start_time2, str(duration_seconds2), str(r2_rows), r2_status])
 print(csv_r2)
+
+#Record number 3 - 40 minutes in 
+r3 = "  PIPE-03 | etl_products  | 2026-02-09 | 06:05:38 |   45 | rows=   891 |    WARN    "
+
+parts3 = r3.split("|")
+
+pipe_id3  = parts3[0].strip()
+job_name3 = parts3[1].strip()
+run_date3 = parts3[2].strip()
+start_time3 = parts3[3].strip()
+duration_seconds3 = int(parts3[4].strip())
+rows_label3 = parts3[5].strip()              
+status_raw3 = parts3[6].strip()
+
+#Extracting the numeric part of rows_laber and casting it to int
+numeric_rows3 = rows_label3.split("=")
+r3_rows = int(numeric_rows3[1].strip())
+
+#Normalizing status to lowercase and stripped
+r3_status = status_raw3.lower().strip()
+
+#parsing run_date into year month and day
+r3_year = run_date3[:4]
+r3_month = run_date3[5:7]
+r3_day = run_date3[8:10]
+
+#computing duration minutes and leftover seconds
+duration_minutes3 = duration_seconds3 // 60
+leftover_seconds3 = duration_seconds3 % 60
+print("──────────────────────────────────────────")
+print("╔══════════════════════════════════════╗")
+print(f"║ {pipe_id3}  |  {job_name3}             ║")
+print("╚══════════════════════════════════════╝")
+print(f"  Run date   : {r3_year}/{r3_month}/{r3_day} ")
+print(f"  Start time : {start_time3}")
+print(f"  Duration   : {duration_minutes3}m {leftover_seconds3}s")
+print(f"  Rows read  : {r3_rows:,}")
+print(f"  Status     : {r3_status.upper()}")
+csv_r3 = ",".join([pipe_id3, job_name3, run_date3, start_time3, str(duration_seconds3), str(r3_rows), r3_status])
+print(csv_r3)
+
+r4 = "PIPE-04|etl_events|2026-02-09|06:06:23|  3782 | rows=99103|FAILED"
+
+parts4 = r4.split("|")
+
+pipe_id4  = parts4[0].strip()
+job_name4 = parts4[1].strip()
+run_date4 = parts4[2].strip()
+start_time4 = parts4[3].strip()
+duration_seconds4 = int(parts4[4].strip())
+rows_label4 = parts4[5].strip()              
+status_raw4 = parts4[6].strip()
+
+#Extracting the numeric part of rows_laber and casting it to int
+numeric_rows4 = rows_label4.split("=")
+r4_rows = int(numeric_rows4[1].strip())
+
+#Normalizing status to lowercase and stripped
+r4_status = status_raw4.lower().strip()
+
+#parsing run_date into year month and day
+r4_year = run_date4[:4]
+r4_month = run_date4[5:7]
+r4_day = run_date4[8:10]
+
+#computing duration minutes and leftover seconds
+duration_minutes4 = duration_seconds4 // 60
+leftover_seconds4 = duration_seconds4 % 60
+print("──────────────────────────────────────────")
+print("╔══════════════════════════════════════╗")
+print(f"║ {pipe_id4}  |  {job_name4}               ║")
+print("╚══════════════════════════════════════╝")
+print(f"  Run date   : {r4_year}/{r4_month}/{r4_day} ")
+print(f"  Start time : {start_time4}")
+print(f"  Duration   : {duration_minutes4}m {leftover_seconds4}s")
+print(f"  Rows read  : {r4_rows:,}")
+print(f"  Status     : {r4_status.upper()}")
+csv_r4 = ",".join([pipe_id4, job_name4, run_date4, start_time4, str(duration_seconds4), str(r4_rows), r4_status])
+print(csv_r4)
