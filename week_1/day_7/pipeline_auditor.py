@@ -194,3 +194,23 @@ print(f"Total rows read : {total_rows:,}")
 print(f"Total duration  : {total_duration:,}s  ({total_minutes}m {total_leftover_seconds}s)")
 print(f"Statuses        : {statuses}")
 print("══════════════════════════════════════════")
+print("\n")
+count = parts4[1].find("  ")
+print(count)
+'''Answer the following questions **in code comments** in your script. Don’t just guess — think through each one carefully based on what you know:
+
+1. **r4's `job_name`** — after splitting and stripping, is there a risk of extra internal spaces? How would you check?
+- I'm not sure if there is a risk of extra internal spaces, but you can check with: print(len(parts4[1])). Looks like the len is 10 but there are only 9 indexes hm ?
+
+2. **The `rows_label` double-split** — what happens if someone sends `rows_processed=8420` instead of `rows=8420`? Does your code still work? What breaks?
+- i think it should still work no? Cause I only split("=") i didn't split("_") too.
+
+3. **Silent failure** — if r1’s duration field was `" abc "` instead of `" 127 "`, at what exact point does your script crash, and what error do you get?
+- the script would crash when i try to transform the duration field from str to int. 7th row of the code would crash, error is ValueError
+
+4. **The `.find()` trap** — if you had used `s.find("rows=")` to extract the row count instead of splitting, what would happen if the field had no `"="` at all?
+- i would receive -1 after find
+
+
+5. **`.join()` rebuild** — your CSV line uses `.join()`. What’s one thing that would cause it to produce wrong output without crashing?
+- i have no ideea....'''
