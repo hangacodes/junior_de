@@ -39,3 +39,4 @@ print(f"ends with '_id' : {c3.endswith("_id")}")
 print(f"ends with '.csv' : {c3.endswith(".csv")}")
 print("account_balance doesn't end with '_id' or '.csv'")
 print(f"'_' appears : {c3.count("_")} times")
+

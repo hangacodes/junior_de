@@ -165,3 +165,8 @@ print(type(f"{total:.2f}"))
 #2nd: int
 #3rd : 20.00
 #4th float
+'''DAMN IT!!!! '''
+
+print("===SUMMARY===")
+print("It took my about 40 minutes to do these Danger zone drills, and they were friking danger for sure!")
+print("I got 6/15 correctly, and some partials...IDK if this is good or bad but oh well, will pay more attention")
