@@ -12,8 +12,8 @@
 
 **What Could Go Wrong?
 ** Answer in comments:
- (1) What happens if a field is missing a comma (record has only 3 chunks instead of 4)? 
- (2) What error do you get if `qty=` has no number after it?'''
+(1) What happens if a field is missing a comma (record has only 3 chunks instead of 4)? 
+(2) What error do you get if `qty=` has no number after it?'''
 
 raw = "  ORD-77 ,  wrench  , qty=  4, price=  19.99  "
 parts = raw.split(",")
@@ -33,5 +33,39 @@ print(clear_sentence)
 
 strict_csv = ",".join([order_id, item, str(qty), str(price), str(total)])
 print(strict_csv)
+       
+'''This went pretty smootly.
+I parsed the qty and price directly without doing parts and then qty_text separately and then qty = int(qty_text) 
+- the answer key from the lesson attached below, did it separately
+Did I do it wrong?'''
 
-#
+'''### 10C) Primary Deliverable Solution
+
+
+raw = "  ORD-77 ,  wrench  , qty=  4 , price=  19.99  "
+parts = raw.split(",")
+
+order_id = parts[0].strip()
+item = parts[1].strip()
+
+qty_part = parts[2].strip()          # "qty=  4"
+price_part = parts[3].strip()        # "price=  19.99"
+
+qty_text = qty_part.split("=")[1].strip()
+price_text = price_part.split("=")[1].strip()
+
+qty = int(qty_text)
+price = float(price_text)
+total = round(qty * price, 2)
+
+print(f"Order{order_id}:{item} x{qty} @{price} ={total}")
+
+csv_line = ",".join([order_id, item, str(qty), str(price), str(total)])
+print(csv_line)
+
+# What Could Go Wrong?
+# 1) Missing comma: parts has only 3 elements instead of 4.
+#    parts[3] raises IndexError: list index out of range.
+# 2) qty= with no number: qty_part.split("=")[1] gives "" (empty string).
+#    int("") raises ValueError: invalid literal for int() with base 10: ''
+'''
