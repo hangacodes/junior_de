@@ -201,16 +201,24 @@ print(count)
 
 1. **r4's `job_name`** — after splitting and stripping, is there a risk of extra internal spaces? How would you check?
 - I'm not sure if there is a risk of extra internal spaces, but you can check with: print(len(parts4[1])). Looks like the len is 10 but there are only 9 indexes hm ?
+- So appearantly i can use parts4[1].find("  ") or parts4[1].count(" "). Why not len() ?
 
 2. **The `rows_label` double-split** — what happens if someone sends `rows_processed=8420` instead of `rows=8420`? Does your code still work? What breaks?
 - i think it should still work no? Cause I only split("=") i didn't split("_") too.
+- I GOT THIS ONE RIGHT
 
 3. **Silent failure** — if r1’s duration field was `" abc "` instead of `" 127 "`, at what exact point does your script crash, and what error do you get?
 - the script would crash when i try to transform the duration field from str to int. 7th row of the code would crash, error is ValueError
+- I GOT THIS ONE RIGHT
 
 4. **The `.find()` trap** — if you had used `s.find("rows=")` to extract the row count instead of splitting, what would happen if the field had no `"="` at all?
 - i would receive -1 after find
+-I GOT THIS ONE RIGHT
 
 
 5. **`.join()` rebuild** — your CSV line uses `.join()`. What’s one thing that would cause it to produce wrong output without crashing?
-- i have no ideea....'''
+- i have no ideea....
+- I didn't know that - If any element is not a str (e.g., an int left un-converted), .join() raises TypeError. 
+- If an element has embedded commas, the CSV structure breaks silently — extra columns appear downstream.'''
+
+# I finished everything in 1 hour in 10 minutes
