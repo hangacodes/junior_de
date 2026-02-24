@@ -1,4 +1,4 @@
-print("PIPELINE CONFIG CARD")
+print("\nPIPELINE CONFIG CARD")
 print("--------------------")
 project_name = "Zero to Hired Data Engineer"
 source_system = "junior_de_database"
