@@ -29,6 +29,4 @@ print(f"Tax: ${tax:.2f}")
 print(f"Total: ${total:.2f}")
 print("-------------------------------------")
 print("\n\t===THANK YOU===")
-print("\tcome again hihi")
-
-
+print("\tcome again")
