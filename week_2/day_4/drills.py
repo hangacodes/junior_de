@@ -57,3 +57,33 @@ else:
         print("EU_RULES")
     else:
         print("GENERAL_RULES")
+
+'''**C2 — Refactor to flatten**
+
+Rewrite this with guard-first pattern (same behavior, fewer indent levels):'''
+
+row = "Sam,20"
+parts = row.split(",")
+
+'''if len(parts) == 2:
+    age = int(parts[1])
+    if age >= 0:
+        if age <= 120:
+            print("OK age")
+        else:
+            print("ERROR: too high")
+    else:
+        print("ERROR: negative")
+else:
+    print("ERROR: wrong fields")'''
+
+if len(parts) != 2:
+    print("ERROR: wrong fields")
+else:
+    age = int(parts[1])
+    if age < 0:
+        print("ERROR: negative")
+    elif age > 120:
+        print("ERROR:too high")
+    else:
+        print("OK age")
