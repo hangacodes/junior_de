@@ -22,7 +22,7 @@ total = subtotal + tax
 
 print("\t--- RECEIPT ---")
 print("-------------------------------------")
-print(f"\nCoffee: {coffee_qty} \t\tprice: ${coffee_total:.2f}")
+print("\nCoffee: {coffee_qty} \t\tprice: ${coffee_total:.2f}")
 print(f"Sandwich: {sandwich_qty} \t\tprice: ${sandwich_total:.2f}")
 print(f"\nSubtotal: ${subtotal:.2f}")
 print(f"Tax: ${tax:.2f}")
