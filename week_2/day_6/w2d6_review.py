@@ -128,7 +128,7 @@ except ValueError:
 - Age should be converted to int
 - If age conversion fails, print an error message for that row and continue?????'''
 
-row1 = "  alice , 28,  MOSCOW "
+'''row1 = "  alice , 28,  MOSCOW "
 row2 = "BOB,  35 ,london"
 row3 = "  Charlie,22,  NEW YORK  "
 row4 = "  diana,  41, tokyo "
@@ -186,13 +186,51 @@ try:
 except ValueError:
     print("ERROR: invalid age for row 5, skipping")
 
-#For each row, parse and clean it , then print:
-'''Name: Alice | Age: 28 | City: Moscow
-Name: Bob | Age: 35 | City: London
-...'''
+
 
 print(f"Name: {name_raw1} | Age: {age1} | City: {city_raw1}")
 print(f"Name: {name_raw2} | Age: {age2} | City: {city_raw2}")
 print(f"Name: {name_raw3} | Age: {age3} | City: {city_raw3}")
 print(f"Name: {name_raw4} | Age: {age4} | City: {city_raw4}")
 print(f"Name: {name_raw5} | Age: {age5} | City: {city_raw5}")
+'''
+
+
+#BUG HUNT
+#Each snippet has exactly one bug. Find it, explain it, fix it.
+
+'''#1
+name = "Cristian"
+print(f"Hello,{name}!") #variable should be name not Name
+
+#2
+age = int(input("Enter age: "))
+if age >= 18:
+    print("Adult") #missing = before > , if he is exactly 18, this would not work
+    #even tho he is already an adult at 18
+#LoL !!! I forgot to wrap it in int'''
+#3
+'''text = "hello world"
+#text[0] = "H"
+print(text) #strings are immutable, i would need to create a new variable for it
+
+text_clean = "H" + text[1:]
+print(text_clean)'''
+
+'''#4
+score = 50
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else: 
+    grade = "is under 70"
+print(f"Your grade is {grade}")'''
+
+'''#5
+data = "one,two,three"
+parts = data.split(",") #comma was missing
+print(parts[1])
+'''
