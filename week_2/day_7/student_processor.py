@@ -278,3 +278,160 @@ if city7 == "":
 
 if valid7:
     print(f"✓ {name7} - Age: {age7}, Grade: {grade7_f}%, City: {city5}")
+
+print("\n")
+#Grade Classification
+if valid1:
+    if 90.0 <= grade1_f <= 100.0:
+        label1 = "Excellent"
+        letter1 = "A"
+    elif 80.0 <= grade1_f <= 89.9:
+        label1 = "Good"
+        letter1 = "B"
+    elif 70.0 <= grade1_f <= 79.9:
+        label1 = "Satisfactory"
+        letter1 = "C"
+    elif 60.0 <= grade1_f <= 69.9:
+        label1 = "Needs Improvement"
+        letter1 = "D"
+    else:
+        label1 = "Failing"
+        letter1 = "F"
+
+    print(f"{name1}: {grade1_f}% -> {letter1} ({label1})")
+
+if valid2:
+    if 90.0 <= grade2_f <= 100.0:
+        label1 = "Excellent"
+        letter1 = "A"
+    elif 80.0 <= grade2_f <= 89.9:
+        label2 = "Good"
+        letter2 = "B"
+    elif 70.0 <= grade2_f <= 79.9:
+        label2 = "Satisfactory"
+        letter2 = "C"
+    elif 60.0 <= grade2_f <= 69.9:
+        label2 = "Needs Improvement"
+        letter2 = "D"
+    else:
+        label2 = "Failing"
+        letter2 = "F"
+
+    print(f"{name2}: {grade2_f}% -> {letter2} ({label2})")
+
+if valid3:
+    if 90.0 <= grade3_f <= 100.0:
+        label3 = "Excellent"
+        letter3 = "A"
+    elif 80.0 <= grade3_f <= 89.9:
+        label3 = "Good"
+        letter3 = "B"
+    elif 70.0 <= grade3_f <= 79.9:
+        label3 = "Satisfactory"
+        letter3 = "C"
+    elif 60.0 <= grade3_f <= 69.9:
+        label3 = "Needs Improvement"
+        letter3 = "D"
+    else:
+        label3 = "Failing"
+        letter3 = "F"
+
+    print(f"{name3}: {grade3_f}% -> {letter3} ({label3})")
+
+if valid4:
+    if 90.0 <= grade4_f <= 100.0:
+        label4 = "Excellent"
+        letter4= "A"
+    elif 80.0 <= grade4_f <= 89.9:
+        label4 = "Good"
+        letter4 = "B"
+    elif 70.0 <= grade4_f <= 79.9:
+        label4 = "Satisfactory"
+        letter4 = "C"
+    elif 60.0 <= grade4_f <= 69.9:
+        label4 = "Needs Improvement"
+        letter4 = "D"
+    else:
+        label4 = "Failing"
+        letter4 = "F"
+
+    print(f"{name4}: {grade4_f}% -> {letter4} ({label4})")
+
+if valid5:
+    if 90.0 <= grade5_f <= 100.0:
+        label5= "Excellent"
+        letter5= "A"
+    elif 80.0 <= grade5_f <= 89.9:
+        label5 = "Good"
+        letter5 = "B"
+    elif 70.0 <= grade5_f <= 79.9:
+        label5 = "Satisfactory"
+        letter5 = "C"
+    elif 60.0 <= grade5_f <= 69.9:
+        label5 = "Needs Improvement"
+        letter5 = "D"
+    else:
+        label5 = "Failing"
+        letter5 = "F"
+
+    print(f"{name5}: {grade5_f}% -> {letter5} ({label5})")
+
+if valid6:
+    if 90.0 <= grade6_f <= 100.0:
+        label6= "Excellent"
+        letter6= "A"
+    elif 80.0 <= grade6_f <= 89.9:
+        label6 = "Good"
+        letter6 = "B"
+    elif 70.0 <= grade6_f <= 79.9:
+        label6 = "Satisfactory"
+        letter6 = "C"
+    elif 60.0 <= grade6_f <= 69.9:
+        label6 = "Needs Improvement"
+        letter6 = "D"
+    else:
+        label6 = "Failing"
+        letter6 = "F"
+
+    print(f"{name6}: {grade6_f}% -> {letter6} ({label6})")
+
+if valid7:
+    if 90.0 <= grade7_f <= 100.0:
+        label7= "Excellent"
+        letter7= "A"
+    elif 80.0 <= grade7_f <= 89.9:
+        label7 = "Good"
+        letter7 = "B"
+    elif 70.0 <= grade7_f <= 79.9:
+        label7 = "Satisfactory"
+        letter7 = "C"
+    elif 60.0 <= grade7_f <= 69.9:
+        label7 = "Needs Improvement"
+        letter7 = "D"
+    else:
+        label7 = "Failing"
+        letter7 = "F"
+
+    print(f"{name7}: {grade7_f}% -> {letter7} ({label7})")
+
+    #Summary Statistics 
+total_records_processed = 7
+total_valid_records = 3
+total_invalid_records = total_records_processed - total_valid_records
+
+
+average_grade = (88.5 + 72.3 + 65.0) / 3
+print("═══════════════════════════════════")
+print("\tSTUDENT REPORT SUMMARY")
+print("═══════════════════════════════════")
+print(f"\nTotal records processed: {total_records_processed}")
+print(f"Valid records: {total_valid_records}")
+print(f"Invalid records: {total_invalid_records}")
+
+print(f"\nAverage grade: {average_grade:.1f}%")
+print(f"Highest grade: {name1} - {grade1_f}%")
+print(f"Lowest grade: {name6} - {grade6_f}%")
+
+print(f"\nPassing (≥60%): 2 students")
+print(f"Failing (<60%): 1 student")
+
