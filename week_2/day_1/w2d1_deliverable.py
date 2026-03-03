@@ -29,6 +29,21 @@ For now, notice the repetition—that recognition is exactly what will make loop
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Row 1
 r1 = "cristian,30,RO"
 parts = r1.split(",")
@@ -85,6 +100,24 @@ print("3rd user:")
 print(f"Age nonnegative: {age_nonnegative2}")
 print(f"Age reasonable: {age_reasonable2}")
 print(f"Country has two chars: {country_two_chars2}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # I did this a little differently than the answer key from the lesson but is the same and i think it looks better. I might be wrong.
