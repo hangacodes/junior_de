@@ -1,4 +1,23 @@
 #Write a script that evaluates **three scenarios** of a “nightly data load” using these rules:
+'''**Rules to implement:**
+- `can_start_load` = source is reachable AND schema is valid AND (rows within limit OR manual override)
+- `should_alert` = source is NOT reachable OR schema is NOT valid
+- `throughput_ok` = run_seconds is not zero AND (rows_processed / run_seconds >= 1000) — use short-circuit!
+
+**Scenario 1:**
+- `source_reachable = True`, `schema_valid = True`, `manual_override = False`
+- `rows_estimate = 900`, `max_rows = 1000`
+- `rows_processed = 300000`, `run_seconds = 250`
+
+**Scenario 2:**
+- `source_reachable = False`, `schema_valid = True`, `manual_override = True`
+- `rows_estimate = 5000`, `max_rows = 1000`
+- `rows_processed = 0`, `run_seconds = 0`
+
+**Scenario 3:**
+- `source_reachable = True`, `schema_valid = False`, `manual_override = False`
+- `rows_estimate = 800`, `max_rows = 1000`
+- `rows_processed = 120000`, `run_seconds = 90`'''
 
 #scenario 1:
 source_reachable1 = True

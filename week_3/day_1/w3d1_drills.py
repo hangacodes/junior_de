@@ -50,7 +50,7 @@ cols[1] = "email"
 
 print(cols)'''
 
-actions = ["start"]
+'''actions = ["start"]
 
 #TODO: append "added_column"
 #TODO: pop the last action into last_action
@@ -60,4 +60,4 @@ actions.append("added_column")
 last_action = actions.pop()
 
 print(actions)
-print(last_action)
+print(last_action)'''
