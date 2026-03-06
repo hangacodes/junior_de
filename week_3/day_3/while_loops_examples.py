@@ -8,7 +8,7 @@ while i < len(data):
     i = i + 1
 print(total)  # 12 — "9" never reached
 print(i)'''
-
+#sentinel + break
 '''names = ["alice", "bob", "STOP", "cora"]
 i = 0
 while i < len(names):
@@ -33,7 +33,7 @@ while i < len(inputs):
 
 print(total)
 '''
-
+#skip bad records using continue
 '''rows = ["alice", "", "bob", "   ", "cora"]
 
 i= 0
@@ -46,7 +46,7 @@ while i < len(rows):
     clean.append(rows[i].strip())
     i = i + 1
 print(clean)'''
-
+#find first pattern with break
 '''nums = [ 4, 8, 15, 16, 23, 42]
 
 i = 0 
@@ -64,7 +64,7 @@ else:
     print("none found")'''
 
 #retry loops
-responses = ["fail", "fail", "fail", "fail", "fail", "success"]
+'''responses = ["fail", "fail", "fail", "fail", "fail", "success"]
 max_attempts = 5
 attempts = 0
 i = 0
@@ -79,3 +79,6 @@ while True:
         break
     attempts = attempts + 1
     i = i + 1
+'''
+
+

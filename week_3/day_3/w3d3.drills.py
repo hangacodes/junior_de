@@ -80,7 +80,7 @@ while readings[i] >= 0:
     i = i + 1
 print(total)'''
 
-ages = [12, 15, 17, 19, 16]
+'''ages = [12, 15, 17, 19, 16]
 i = 0
 answer = -1
 
@@ -89,4 +89,4 @@ while i < len(ages):
         answer = i
         break
     i = i + 1
-print(answer)  # expected: 3
+print(answer)  # expected: 3'''

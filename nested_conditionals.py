@@ -6,3 +6,8 @@ if score >= 50:
         print("Distinction")
 else:
     print("Failed")
+
+
+
+
+    
