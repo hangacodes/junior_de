@@ -1,0 +1,26 @@
+### 6D) Primary Deliverable — Mini Data-Quality Summary
+
+You receive sensor readings. Valid readings are integers from **1 to 100** inclusive. Invalid are `<= 0` or `> 100`.
+
+```python
+readings = [10, 200, 30, -5, 0, 55, 101, 99]
+```
+
+Your program must print: 
+the cleaned list (valid only), 
+count of valid, count of invalid, 
+total of valid readings, 
+minimum and maximum of valid readings, and sorted valid readings.
+
+**Safety rule:** If there are **no valid readings**,
+do not call `min()`/`max()`/`sum()` on the empty list. Print a clear message instead.
+
+**Constraint:** No list comprehensions yet—use `for` loops. No `while` loops needed.
+
+**What could go wrong?** What if every reading is invalid? Does your code crash or handle it gracefully?
+
+Git checkpoint: `git add -A && git commit -m "W3D4: sensor quality summary deliverable"`
+
+> Note: The filtering + summary code repeats similar `if/else` blocks—functions 
+(Week 5) will let you extract each check into a reusable piece.
+>
