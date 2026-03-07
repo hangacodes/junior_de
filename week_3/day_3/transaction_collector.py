@@ -45,3 +45,19 @@ print(f"Total sum: {total_amount}")
 print(f"Average: {average}")
 print(f"Invalid count: {count_invalid}")
 print(f"Negative count: {count_negative}")
+print("Today was today, tomorrow is a new day.")
+print("Thanks for watching!")
+
+
+list_1 = [ 1, 3, 4, 5 ,6 ]
+
+list_1.append(3)
+print(list_1)
+
+list_1.insert(1, 2)
+print(list_1)
+list_1.insert(2,999)
+list_1.pop(1)
+list_1.remove(3)
+list_1.remove(3)
+print(list_1)

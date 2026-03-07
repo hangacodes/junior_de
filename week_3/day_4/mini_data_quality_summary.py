@@ -25,3 +25,16 @@ else:
     print(f"Sorted readings: {sorted(clean_readings)}")
 
 
+print("===Summary===")
+lst = [0, "Berlin"]
+
+idx, city = lst
+print("Index:" ,idx)
+print(f"Index: {idx}")
+print(f"City: {city}")
+
+print(f"CleanReadings: {clean_readings}")
+print("===SUMMARY===")
+print(f"Today is : {clean_readings}")
+print(f"Tomorrow is tomorrow: {[3,4,8]}")
+print("I HAVE NO IDEEA: {what the fuck am i doing here}")

@@ -1,0 +1,25 @@
+### 6D) Primary Deliverable — `w3d5_listcomp_pipeline.py`
+
+Given raw transaction strings, build a clean mini-pipeline using comprehensions and a loop.
+
+```python
+raw = ["  $12 ", "FREE", " $7", "N/A", "  $100  ", "$0", " $5 "]
+```
+
+**Requirements:**
+
+1. `prices_comp` — single comprehension: strip, keep `"$"` entries, convert to `int`.
+2. `prices_loop` — `for` loop with temporary variable producing the same result.
+3. `nonzero_prices` — comprehension keeping only prices > 0.
+4. `discounted` — comprehension applying 10% discount: `int(p * 0.9)`.
+5. Print all four lists with clear labels.
+6. Add a 2–3 sentence comment at the bottom: 
+which version (comprehension vs loop) is more readable here, and where did the temporary variable help?
+
+**Constraint:** No `while` loops, no `break`/`continue` needed. No constructs from Week 4+.
+
+**What could go wrong?** 
+What happens if `raw` contains `"$"` with no digits after it?
+Does your slicing crash?
+
+Git checkpoint: `git add -A && git commit -m "W3D5: listcomp pipeline deliverable"`
