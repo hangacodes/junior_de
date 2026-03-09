@@ -10,8 +10,8 @@ print("\n===STUDENT PROCESSOR PROJECT===\n")
 print("═" * 80)
 print("Section1: Cleaned records")
 print("-" * 25)
-#Parsing and Cleaning
 
+#Parsing and Cleaning
 student1_parts = record_1.split(",")
 name1 = student1_parts[0].strip().title()
 age1 = student1_parts[1].strip()

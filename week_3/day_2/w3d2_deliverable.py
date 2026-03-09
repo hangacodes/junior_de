@@ -53,7 +53,9 @@ print(f"Invalid bad temp rows: {bad_temp_count}")
 print(f"Invalid bad status rows: {bad_status_count}")
 
 for idx, row in enumerate(rows):
-    if row in invalid_rows:
+    for row in invalid_rows:
         print(idx, row)
 
+
 #THIS SHIII IS HARD ! LMAO
+
