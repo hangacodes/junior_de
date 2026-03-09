@@ -30,10 +30,10 @@ clean = []
 print("\n--- Range validation ---")
 print(f"Valid range: {range_low} to {range_high}")
 for temp in parsed:
-    if temp < -40.0:
+    if temp < range_low:
         out_of_range.append(temp)
         print(f"\t-Too low: {temp}")
-    elif temp > 60.0:
+    elif temp > range_high:
         out_of_range.append(temp)
         print(f"\t-Too high: {temp}")
     else:
@@ -43,30 +43,34 @@ print(f"Out of range count:\t{len(out_of_range)}")
 print(f"Clean readings:\t\t{len(clean)}")
 
 
+if len(clean) > 0:
+    highest_temp = clean[0]
+    lowest_temp = clean[0]
+    total = sum(clean)
 
-highest_temp = clean[0]
-lowest_temp = clean[0]
-total = sum(clean)
-
-
-#Max
-for t in clean:
-    if t > highest_temp:
-        highest_temp = t
-#Min
-for t in clean:
-    if t < lowest_temp:
-        lowest_temp = t
+    #Max
+    for t in clean:
+        if t > highest_temp:
+            highest_temp = t
+    #Min
+    for t in clean:
+        if t < lowest_temp:
+            lowest_temp = t
+    average = total / len(clean)
+else:
+    average = "N/A"
+    total = 0
+    highest_temp = "N/A"
+    lowest_temp = "N/A"
 
 print("\n--- Statitics (clean readings only) ---")
 print(f"Lowest temp: {lowest_temp}")
 print(f"Highest temp: {highest_temp}")
 print(f"Total temp: {round(total, 2)}")
-if len(clean) > 0:
-    average = total / len(clean)
-else:
-    print("Average cannot be determined. Division by 0 leads to an error")
-print(f"Average temp: {round(average, 2)}")
+#Ternary expressions : Will be taught in week 4-5 maybe ?
+#A one liner if/else built into an expressions
+#value_if_true if condition else value_if_false
+print(f"Average temp: {round(average, 2)if len(clean) > 0 else average}")
 
 print("\n--- Quality Score ---")
 clean_rate = (len(clean) / len(raw_readings)) * 100
