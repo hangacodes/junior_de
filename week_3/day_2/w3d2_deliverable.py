@@ -50,11 +50,8 @@ print(f"Total rows: {len(rows)}")
 print(f"Valid rows: {valid_count}")
 print(f"Invalid rows: {len(invalid_rows)}")
 print(f"Invalid bad temp rows: {bad_temp_count}")
-print(f"Invalid bad status rows: {bad_status_count}")
-
-for idx, row in enumerate(rows):
-    for row in invalid_rows:
-        print(idx, row)
+print(f"Invalid bad status: {bad_status_count}")
+print("I have no clue lmao")
 
 
 #THIS SHIII IS HARD ! LMAO

@@ -1,0 +1,155 @@
+## 1️⃣ PROJECT GOALS
+
+Build a single Python script (`sensor_report.py`) that reads a hardcoded list of raw sensor readings, cleans them,
+computes summary statistics, and prints a formatted quality report.
+
+**Why this project matters:** In data engineering, raw data is messy.
+Sensors send bad values, missing entries, and out-of-range spikes.
+Before any analysis happens, someone writes code to separate clean data from junk, summarize what’s usable, and flag what’s not.
+That someone is you—today.
+
+**What you’ll practice:**
+-lists, `for` loops, `while` loops, `break`/`continue`;
+-accumulator and counter patterns, running max/min;
+-filtering (loop and comprehension), mapping, list comprehensions;
+-`.isdigit()`, `try/except ValueError`, and `in` operator.
+
+This project touches every major concept from Week 3.
+
+## 3️⃣ PROJECT BRIEF
+
+You work on a pipeline team.
+A temperature sensor sends readings as strings.
+Some are clean numbers, some are garbage (`"ERR"`, `""`, `"N/A"`), and some are out of the expected range (below -40 or above 60 Celsius).
+Your job: write a script that processes these readings and produces a quality report.
+
+**Input data** (hardcoded—no file reading needed):
+
+```python
+raw_readings = [
+    "23.1", "ERR", "18.5", "", "45.2", "-3.0", "N/A",
+    "72.8", "31.4", "bad", "0.0", "-41.5", "27.6", "",
+    "15.9", "ERR", "38.7", "22.0", "55.1", "missing",
+    "19.8", "-0.5", "ERR", "33.3", "61.2", "14.7",
+    "29.0", "", "OFFLINE", "42.1"
+]
+```
+
+**Expected output** (your numbers should match if your logic is correct):
+
+```
+=== SENSOR DATA QUALITY REPORT ===
+
+--- Input Summary ---
+Total readings received: 30
+Unparseable (non-numeric): 10
+Parseable readings:        20
+
+--- Range Validation ---
+Valid range: -40.0 to 60.0
+  - Reading 72.8 (too high)
+  - Reading -41.5 (too low)
+  - Reading 61.2 (too high)
+Out-of-range count:        3
+Clean readings:            17
+
+--- Statistics (clean readings only) ---
+Minimum: -3.0
+Maximum: 55.1
+Sum:     412.9
+Average: 24.29
+
+--- Quality Score ---
+Clean rate: 56.67% (17 of 30)
+Status: NEEDS REVIEW (below 80% threshold)
+
+=== END REPORT ===
+```
+
+## 4️⃣ REQUIREMENTS
+
+Your script must include **all** of the following. Check each one off as you complete it.
+
+**Phase 1 — Parse raw strings into numbers**
+
+- [ ]  R1: Loop through `raw_readings`. For each string, try converting to `float`.
+       If conversion fails, count it as unparseable and `continue` to the next reading.
+- [ ]  R2: Store successfully parsed numbers in a list called `parsed`.
+- [ ]  R3: Track the count of unparseable entries with a counter variable.
+
+**Phase 2 — Validate range**
+
+- [ ]  R4: Define `RANGE_LOW = -40.0` and `RANGE_HIGH = 60.0` as variables (not magic numbers in your code).
+- [ ]  R5: Loop through `parsed`. If a value is below `RANGE_LOW` or above `RANGE_HIGH`, add it to an `out_of_range`
+list with a label (`"too high"` or `"too low"`).
+       Otherwise, add it to a `clean` list.
+- [ ]  R6: Print each out-of-range reading with its reason.
+
+**Phase 3 — Compute statistics on clean data**
+
+- [ ]  R7: Compute the minimum using a `for` loop with running-minimum pattern
+(initialize from `clean[0]`). Do NOT use the `min()` built-in.
+- [ ]  R8: Compute the maximum using a `for` loop with running-maximum pattern. Do NOT use the `max()` built-in.
+- [ ]  R9: Compute the sum using an accumulator. You MAY use `sum()` built-in OR write your own loop—your choice.
+- [ ]  R10: Compute the average from sum and count.
+Handle the edge case where `clean` is empty (avoid dividing by zero).
+
+**Phase 4 — Quality score**
+
+- [ ]  R11: Compute the clean rate as a percentage: `(len(clean) / total) * 100`. Round to 2 decimal places.
+- [ ]  R12: If clean rate >= 80, print `"Status: PASS"`. Otherwise print `"Status: NEEDS REVIEW (below 80% threshold)"`.
+
+**Phase 5 — Output formatting**
+
+- [ ]  R13: Print a formatted report matching the structure in Section 3
+(exact wording doesn’t need to match, but all numbers must be present and labeled clearly).
+- [ ]  R14: Use f-strings for all formatted output.
+
+**Constraints:**
+
+- No imports. No constructs from Week 4+ (no dictionaries, no tuples unpacking, no functions).
+- You may use `sum()`, `len()`, `round()`, `sorted()` built-ins, but running min/max must be manual loops.
+- `try/except ValueError` for parsing is required (not `.isdigit()`, since readings include floats with `.`).
+
+
+## 5️⃣ IMPLEMENTATION GUIDE
+
+Don’t read this all at once. Work through one phase, test it, then move to the next.
+
+**Step 1 — Set up the data and Phase 1 loop (15 min)**
+
+Start with the `raw_readings` list.
+Write a `for` loop with `try/except` that separates parseable from unparseable.
+Print `parsed` and the unparseable count to verify before moving on.
+
+Check: You should get 20 parseable values and 10 unparseable.
+
+**Step 2 — Range validation (15 min)**
+
+Loop through `parsed`. Build `clean` and `out_of_range` lists.
+For out-of-range items, figure out whether each is too high or too low and store that information somehow
+(a simple approach: two separate lists, or store the reading alongside its label in a pattern you already know).
+
+One approach that stays within Week 3 concepts: build parallel lists—`out_of_range_values` and `out_of_range_reasons`—or just print the label inside the loop as you go.
+
+Check: You should get 3 out-of-range values and 17 clean values.
+
+**Step 3 — Statistics (15 min)**
+
+Compute min, max, sum, average on the `clean` list only.
+For min and max, initialize from `clean[0]`.
+For average, guard against empty `clean` with an `if len(clean) > 0` check.
+
+Check: Min should be `-3.0`, max should be `55.1`.
+
+**Step 4 — Quality score + report (15 min)**
+
+Compute the percentage. Format everything into a readable report using f-strings.
+Align the labels so numbers line up visually.
+
+**Step 5 — Review and edge-case thinking (10 min)**
+
+Ask yourself: what if ALL readings were unparseable?
+What if all parsed readings were out of range?
+Does your code crash or handle it gracefully?
+Add guards where needed.

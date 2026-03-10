@@ -42,7 +42,8 @@ else:
         else:
             parts.pop(remove_by_index)
     except ValueError:
-        print("Please enter a number.")
+        print("Please enter a valid number")
 
 print(parts)
 print(len(parts))
+print(f"Everything is under control")
