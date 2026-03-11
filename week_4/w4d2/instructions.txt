@@ -1,0 +1,21 @@
+Given:
+
+```python
+sales_by_sku = {"sku_001": 3, "sku_002": 0, "sku_003": 8, "sku_004": 1}
+price_by_sku = {"sku_001": 9.99, "sku_002": 5.00, "sku_003": 2.50, "sku_004": 100.00}
+```
+
+Print:
+1. Header: `DAILY SALES REPORT`
+2. One line per SKU in sorted order: `sku_001 | qty=3 | revenue=29.97`
+3. `TOTAL UNITS: ...`
+4. `TOTAL REVENUE: ...` (formatted with `:.2f`)
+5. `INACTIVE: [...]` listing SKUs with qty == 0
+
+**Must use:** `.items()` + unpacking at least once, `:.2f` for revenue.
+
+**Constraint:** No functions (Week 5), no dict comprehensions, no `zip()`. Only constructs through W4D2.
+
+**What could go wrong?** What if a SKU exists in `sales_by_sku` but not in `price_by_sku`? Would your script crash?
+
+Git checkpoint: `git add -A && git commit -m "W4D2: daily sales report deliverable"`

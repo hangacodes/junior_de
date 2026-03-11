@@ -1,0 +1,29 @@
+### 6D) Primary Deliverable — Mini Lookup Console
+
+Build a script that:
+
+1. Starts with a `prices` dict (at least 5 SKUs, like `"sku1": 9.99`).
+2. Runs a `while True` loop asking for an action: `lookup`, `set`, or `quit`.
+3. `lookup`: ask for SKU, print price or `"Unknown sku"` (no crash).
+4. `set`: ask for SKU and price, convert to `float` with `try/except`, add/update the dict.
+5. `quit`: break the loop.
+6. Unknown actions get a help message.
+
+**Must use:** dict literal or `{}`, `dict[key] = value`, `in` or `.get()`, at least one f-string.
+
+**Constraint:** No list comprehensions or dict comprehensions. No functions (Week 5). No `.keys()`/`.values()`/`.items()` (tomorrow).
+
+**What could go wrong?** What happens if the user enters a price like `"abc"`? Does your script handle it?
+
+Git checkpoint: `git add -A && git commit -m "W4D1: lookup console deliverable"`
+
+
+I need to create a dictionary with at least 5 pairs
+
+i need to run a while true loop asking for a action? Lookup set or quit ? Wtf is this ?
+
+lookup body will ask for SKY print price or unknown sku
+set will ask for sky and price and convert to float with try except, add update the dict ?
+quit will break the loop
+
+And when is an unknown action i need to print something
