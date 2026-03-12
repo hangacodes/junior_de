@@ -1,0 +1,30 @@
+### 6D) Primary Deliverable: “Mini Log Analyzer” (`log_analyzer.py`)
+
+**Scenario:** You have a list of log lines.
+Write one script that parses them and prints a summary.
+
+```python
+logs = [
+    "INFO,auth,login",
+    "WARN,auth,bad_password",
+    "INFO,shop,view_item",
+    "ERROR,shop,payment_failed",
+    "INFO,auth,logout",
+    "INFO,shop,view_item",
+    "WARN,shop,slow_response"
+]
+```
+
+**Requirements:**
+
+1. Build `level_counts`: level → count (counter pattern)
+2. Build `by_service`: service → list of messages (grouping pattern)
+3. Build a lookup table `severity = {"INFO": 1, "WARN": 2, "ERROR": 3}`
+and print each log line with its severity number (unknown → 0)
+4. Print the service with the most messages (use running-max from W3D4)
+
+**Constraint:** No sets, no functions — use only loops, dicts, lists, `.get()`, `.setdefault()`, `.split()`, and `if` statements.
+
+**What could go wrong:** What if a log line has an unknown level like `"DEBUG"`? Does your severity lookup handle it? What if a service has zero messages — can that happen with your logic?
+
+Git checkpoint: `git add -A && git commit -m "W4D3: mini log analyzer complete"`
