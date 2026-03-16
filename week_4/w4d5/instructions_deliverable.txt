@@ -1,0 +1,20 @@
+### 6D) Primary Deliverable: “Mini Transaction Model + Join + Summary” (`data_model.py`)
+
+**Scenario:** Design two entities, connect them, and produce a grouped revenue report.
+
+**Requirements:**
+
+1. Create `customers` (at least 3 records: `id`, `name`, `tier`).
+2. Create `orders` (at least 5 records: `id`, `customer_id`, `total`). At least one customer should have multiple orders.
+3. Build `customer_index` as `id → record`.
+4. Produce `enriched_orders` — a list of dicts with `order_id`, `customer_name`, `tier`, `total`.
+5. Produce `revenue_by_tier` — a dict mapping tier to total revenue.
+6. Print `enriched_orders` length, verify it equals the number of orders.
+7. Print the tier with the highest revenue.
+8. Write a schema comment at the top describing both entities and their relationship.
+
+**Constraint:** No sets, no functions — use loops, dicts, lists, `.get()`, `.setdefault()`, `.items()`, and `if` statements.
+
+**What could go wrong:** What if an order has a `customer_id` that doesn’t exist in `customer_index`? How would you handle that safely?
+
+Git checkpoint: `git add -A && git commit -m "W4D5: data model + join + summary complete"`
