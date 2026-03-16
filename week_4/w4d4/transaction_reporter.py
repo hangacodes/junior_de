@@ -1,3 +1,6 @@
+# Schema: transactions is list[dict]
+# Each dict: id (str), user (str), category (str), amount (float), discount (float, optional)
+
 transactions = [
     {"id": "t1", "user": "Ava", "category": "tech", "amount": 120.00, "discount": 12.00},
     {"id": "t2", "user": "Bo",  "category": "miscellaneous",  "amount": 12.00, "discount": 2.00},
@@ -15,17 +18,14 @@ total = 0
 by_category = {}
 totals_by_category = {}
 
-#TODO 1: Compute net_total (amount minus discount; discount defaults to 0)
 for transaction in transactions:
     total += transaction["amount"] - transaction.get("discount", 0)
-    
-#TODO 2: Build by_category as a dict-of-lists of amounts
-
     by_category.setdefault(transaction["category"], []).append(transaction["amount"])
+
 print(by_category)
 print(total)
 
-#TODO 3: From by_category, compute totals_by_category (category -> sum)
+
 for k, v in by_category.items():
     totals_by_category[k] = sum(v)
 print(totals_by_category)
@@ -40,4 +40,3 @@ for cat, total in totals_by_category.items():
 
 print(top_category)
 print(largest_amt)
-#TODO 4: Find the top category by total (running-max pattern from W3D4)

@@ -1,0 +1,20 @@
+### 6D) Primary Deliverable: “Transaction Reporter” (`transaction_reporter.py`)
+
+**Scenario:** Process a list of transaction records and produce a grouped summary.
+
+**Requirements:**
+
+1. Create `transactions` as a list of at least 5 dicts, each with fields:
+`id`, `user`, `category`, `amount`, and optionally `discount`.
+2. Compute the **net total** (amount minus discount, discount defaults to 0).
+3. Build `by_category`: a dict-of-lists grouping amounts by category.
+4. Compute `totals_by_category`: sum within each category.
+5. Find and print the **top category** by total spend.
+6. Write a schema comment at the top describing the expected structure.
+
+
+**Constraint:** No sets, no functions — use loops, dicts, lists, `.get()`, `.setdefault()`, `.items()`, and `if` statements only.
+
+**What could go wrong:** What if every transaction has a discount of 0 — does your `.get("discount", 0)` still work? What if a category appears only once — does your grouping still produce a list?
+
+Git checkpoint: `git add -A && git commit -m "W4D4: transaction reporter complete"`
