@@ -1,0 +1,32 @@
+Create `w5d2_return_pipeline.py` with these functions
+(all must RETURN values — printing only in the test runner):
+
+1. `clean_text(text)` → stripped + lowered string
+2. `parse_int_or_none(text)` → int or `None`
+3. `line_total(qty, unit_price)` → returns `qty * unit_price` or `None` if either input is `None`
+4. `normalize_order(order)` → returns NEW normalized dict
+5. `order_total(order)` → composes `normalize_order` + `line_total`
+6. `sum_revenue(orders)` → total revenue (skip `None` totals)
+7. `count_valid(orders)` → count of orders with real totals
+8. `revenue_report(orders)` → returns `valid_count, total_revenue`
+
+Write `run_tests()` with at least 8 checks printing `PASS`/`FAIL`,
+including edge cases like `"   "` and `""`.
+
+**Test data:**
+
+```python
+orders = [
+    {"customer": "  Mina  ", "city": " HELSINKI ", "qty": "3", "unit_price": " 19 "},
+    {"customer": "Olli", "city": "Espoo", "qty": "2", "unit_price": "10"},
+    {"customer": "Sara", "city": " Vantaa ", "qty": "x", "unit_price": "5"},
+    {"customer": "Lee", "city": "Turku", "qty": "1", "unit_price": "oops"},
+]
+```
+
+**Constraint:** No default parameters, no keyword arguments, no `*args`/`**kwargs`, no `global`/`nonlocal` — those are W5D3–D4.
+
+**What could go wrong?** If `parse_int_or_none` doesn’t `.strip()` first, `" 42 ".isdigit()` returns `False`. Which test case would catch this?
+
+> 💡 The pattern of checking `if result is not None` before doing math appears 3+ times. In Week 5 Day 5, you’ll learn to write `is_valid(...)` predicate functions that make these checks cleaner.
+>

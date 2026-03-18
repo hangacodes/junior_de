@@ -1,0 +1,27 @@
+### 6D) Primary Deliverable: “Audience Overlap Analyzer” (`audience_analyzer.py`)
+
+**Scenario:** You have messy email lists from two systems.
+Clean them, compare them, apply opt-outs, and produce a final send list.
+
+**Data (use exactly this):**
+
+```python
+newsletter_signups = ["a@x.com", "b@x.com", "b@x.com", "c@x.com", "d@x.com", "d@x.com"]
+purchasers = ["c@x.com", "d@x.com", "e@x.com", "e@x.com"]
+opt_out = {"b@x.com", "nobody@x.com"}
+```
+
+**Requirements:**
+
+1. Convert both lists to sets: `signups_set`, `purchasers_set`.
+2. Compute `total_reach` (union), `overlap` (intersection), `signup_only` (signed up but never purchased), `purchase_only` (purchased but not signed up).
+3. Update `opt_out`: add `"d@x.com"`, remove `"nobody@x.com"`.
+4. Compute `send_list`: people in `signups_set` but NOT in `opt_out`.
+5. Print counts for every computed set.
+6. Print each set (with a note that order may vary).
+
+**Constraint:** No functions — use only sets, lists, loops, `.add()`, `.discard()`, set comparison methods, and `if` statements.
+
+**What could go wrong:** What if someone is in both `opt_out` and `purchasers` — should they still receive the newsletter? Does your `send_list` logic handle that correctly?
+
+Git checkpoint: `git add -A && git commit -m "W4D6: audience overlap analyzer complete"`

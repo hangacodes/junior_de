@@ -1,0 +1,46 @@
+### 6D) Primary deliverable — “Mini Transaction Pipeline (Function Edition)”
+
+Write a single script `w5d1_tx_pipeline.py` that defines these functions:
+
+- `strip_currency(amount_str)` → str
+- `to_float(number_str)` → float
+- `parse_tx_line(line)` → dict (keys: `category`, `amount`)
+- `add_to_totals(totals, tx)` → dict
+- `build_totals(lines)` → dict
+- `print_report(totals)` → None (prints categories and totals)
+
+**Input:**
+
+
+lines = [
+    "food, € 2.00",
+    "transport, € 3.00",
+    "food, € 1.50",
+    "books, € 10.00"
+]
+
+
+**Expected output:**
+
+```
+=== Totals ===
+books: 10.0
+food: 3.5
+transport: 3.0
+```
+
+**Constraint:** No default parameters, no keyword arguments, no `*args`/`**kwargs` — those are W5D4.
+
+**What could go wrong?** What happens if a line has no comma? Which function breaks first? (You don’t have to fix this yet — just identify the failure point.)
+
+> 💡 If you find yourself copy-pasting the same `strip_currency` + `float()` pattern 3+ times, that’s exactly why you’re wrapping it in functions — reuse! In Week 6 you’ll learn to put these helpers in a separate module file.
+> 
+
+**Git checkpoints:**
+
+```bash
+git add -A && git commit -m "W5D1: function skeletons with pass"
+git add -A && git commit -m "W5D1: strip_currency + to_float + parse working"
+git add -A && git commit -m "W5D1: totals aggregation functions working"
+git add -A && git commit -m "W5D1: final report printing + cleanup"
+```
