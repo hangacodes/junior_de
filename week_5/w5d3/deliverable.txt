@@ -1,0 +1,40 @@
+### 6D) Primary deliverable — `scope_metrics.py` (Batch Metrics Summarizer)
+
+Build a script that:
+
+1. Defines `batch_metrics(rows)` returning a dict with keys: `"good"`, `"bad"`, `"last_error"`, `"total"`
+2. Uses a nested helper `mark_bad(msg)` with `nonlocal` to update bad count and last error
+3. Validates rows: exactly 2 comma-separated fields, age must convert to `int`
+4. Prints a final report
+
+**Input:**
+
+```python
+rows = [
+    "Ava, 29",
+    "BROKEN",
+    "Noah, 41",
+    "Mia, not_a_number",
+    "Leo, 18",
+    "Too, many, commas"
+]
+```
+
+**Expected output:**
+
+```
+=== Batch Metrics Report ===
+good: 3
+bad: 3
+total: 6
+last_error: Too, many, commas
+```
+
+**Constraint:** No default parameters, no `*args`/`**kwargs`, no keyword arguments — those are W5D4. No mutable default parameters — you’ll learn the safe pattern tomorrow.
+
+**What could go wrong?** If you forget `nonlocal` inside `mark_bad`, what error would you get? (Try it and see.)
+
+> 💡 The `nonlocal` + nested helper pattern appears often in closures and callbacks. In Week 6 you’ll learn to organize helpers into separate module files.
+> 
+
+**Git checkpoints:**
