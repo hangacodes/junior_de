@@ -1,0 +1,33 @@
+**Scenario:** Build a mini ingestion helper module (`w5d4_ingest_helpers.py`) 
+with 5 documented functions that process messy sensor log lines.
+
+Sample input lines:
+
+```
+"ts=2026-03-10; sensor=temp_01; reading=22.5; unit=C"
+"ts=2026-03-10; sensor=humidity_03; reading=bad_data; unit=%"
+"sensor=pressure_07; reading=1013"
+```
+
+**Requirements:**
+
+1. `parse_log(line, pair_sep=";", kv_sep="=")` — returns a dict of key/value strings
+2. `clean_log(record, required_keys=("ts", "sensor", "reading"))` 
+— returns a new dict with required keys guaranteed (fill missing with `"MISSING"`),
+all values stripped
+3. `extract_reading(record, key="reading", default=0.0)` 
+— returns a float if possible, else `default`
+4. `count_sensors(records, key="sensor")` 
+— given a list of log dicts, return a frequency dict 
+counting each sensor name (missing/blank → `"UNKNOWN"`)
+5. `format_alert(message, level="INFO", **meta)` 
+— return a formatted alert line like `"WARN: threshold exceeded | sensor=temp_01 | reading=45.2"`
+
+Each function must have a docstring.
+
+**Constraint:** No type hints yet — that’s tomorrow (W5D5). No modules/imports — that’s W6D1. Use `for` loops for iteration (list comprehensions are available but not required).
+
+**What Could Go Wrong:** 
+What happens if a log line has no `=`in one of its pairs?
+Does your `parse_log` handle it or crash?
+Add a comment explaining your approach.
