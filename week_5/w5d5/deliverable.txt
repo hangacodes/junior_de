@@ -1,0 +1,36 @@
+### 6D — Primary Deliverable
+
+**Scenario:** Build a “Student Enrollment Quality Gate” that validates incoming enrollment records and splits them into accepted and rejected lists.
+
+**Requirements:**
+
+1. Write these predicate functions (all with type hints):
+    - `is_valid_student_id(text: str) -> bool` — exactly 8 characters, first 2 must be letters A–Z, last 6 must be digits (after strip/upper)
+    - `is_valid_email_like(email: str) -> bool` — use the version you built in 6C
+    - `is_valid_enrollment(record: dict) -> bool` — must have keys `"student_id"`, `"email"`, `"course"`;
+        student_id and email must pass their validators;
+        course must not be blank after stripping
+2. Write `split_enrollments(records: list) -> tuple` 
+— returns `(accepted, rejected)` where accepted records have:
+    -sanitized email (stripped/lowered)
+    -sanitized student_id (stripped/uppered)
+3. Process this dataset:
+
+```python
+records = [
+    {"student_id": "AB123456", "email": "ada@uni.edu", "course": "DE101"},
+    {"student_id": "12345678", "email": "bob@uni.edu", "course": "DE101"},
+    {"student_id": "CD789012", "email": "no-at-sign", "course": "DE102"},
+    {"student_id": "EF345678", "email": "  Carol@Uni.EDU  ", "course": "  "},
+    {"student_id": "GH901234", "email": "dee@uni.edu", "course": "DE103"},
+    {"email": "missing-id@uni.edu", "course": "DE101"}
+]
+```
+
+1. Print accepted count, rejected count, and the accepted list.
+
+**Constraint:** No modules/imports — that’s W6D1. No `raise` — that’s W6D4. Use `for` loops for iteration.
+
+**What Could Go Wrong:** What happens if a record has a `"course"` key but its value is just spaces? Does your validator catch it or let it through? Add a comment explaining your approach.
+
+**Expected:** 2 accepted (AB123456 and GH901234), 4 rejected.
