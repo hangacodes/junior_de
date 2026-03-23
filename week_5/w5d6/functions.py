@@ -136,6 +136,8 @@ print(filter_by_range([5, 150, 50, -3, 80], low=10, high=60))
 #Write a function that takes a list of numbers and an optional `label` (default `"Summary"`), and returns a formatted string with the count, min, max, and average.
 
 def summarize_list(numbers:list, label="Summary") -> str:
+    if len(numbers) == 0:
+        return "No data to summarize!"
     avg = compute_average(numbers)
     count = len(numbers)
     lowest = min(numbers)
