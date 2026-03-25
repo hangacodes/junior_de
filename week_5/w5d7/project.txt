@@ -1,0 +1,61 @@
+## 6️⃣ PROJECT BRIEF
+
+Build an order processing pipeline from scratch, designed from the start as clean functions.
+This is not refactoring — you’re writing it right the first time.
+
+### Scenario
+
+You work on a data team that receives daily order data as raw text. Each line has the format:
+
+
+order_id | customer | product | quantity | unit_price | status
+
+
+Some lines are malformed (missing fields, non-numeric values, empty strings).
+Your pipeline must handle them gracefully.
+
+### Functions You Must Write
+
+Design and implement these functions. Each one does one thing.
+
+**`parse_order(line: str) -> dict or None`**
+- Splits a single line by `" | "`
+- If the line doesn’t have exactly 6 fields, return `None`
+- If any required field (customer, product) is empty after stripping, return `None`
+- If quantity or unit_price can’t convert to number, return `None`
+- On success, return a dict:
+`{"id": str, "customer":str, "product": str, "quantity": int, "unit_price": float, "status": str}`
+
+**`parse_all_orders(lines: list) -> tuple`**
+- Calls `parse_order` on each line
+- Returns `(valid_orders_list, rejected_count)`
+
+**`compute_order_total(order: dict) -> float`**
+- Returns `quantity * unit_price` for a single order
+
+**`add_totals(orders: list) -> list`**
+- Adds an `"order_total"` key to each order dict
+- Calls `compute_order_total` inside
+- Returns the updated list
+
+**`group_by_status(orders: list) -> dict`**
+- Groups orders into a dict-of-lists by their `"status"` value
+
+**`compute_status_summary(grouped: dict) -> dict`**
+- For each status, compute: count of orders, total revenue
+- Returns: `{"shipped": {"count": N, "revenue": X.XX}, "pending": {...}, ...}`
+
+**`find_top_customer(orders: list) -> tuple`**
+- Compute total spending per customer
+- Return `(customer_name, total_spent)` for the biggest spender
+
+**`is_high_value_order(order: dict, threshold: float = 50.0) -> bool`**
+- Predicate: returns `True` if `order_total >= threshold`
+
+**`generate_summary(orders: list, rejected: int, status_summary: dict, top_customer: tuple) -> str`**
+- Returns a formatted report string (does NOT print)
+- Include: total processed, rejected count, breakdown by status, top customer, count of high-value orders
+
+**`main() -> None`**
+- Defines `raw_orders`
+- Calls the pipeline in order: parse → add totals → group → summarize → print
