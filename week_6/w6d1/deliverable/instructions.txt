@@ -1,0 +1,38 @@
+### 6D) Primary Deliverable (60–75 min)
+
+**Scenario:** Build a weather station data module that parses temperature readings, validates them, computes summary statistics, and is cleanly importable.
+
+**Create two files:**
+
+1. `weather_utils.py` — a module with at least 5 functions:
+    - `parse_reading(line)` → takes a string like `"StationA, 23.5, celsius"`,
+       returns a dict `{"station": "Stationa", "temp": 23.5, "unit": "celsius"}`.
+       Strip and lowercase station and unit. Convert temp to `float`.
+    - `celsius_to_fahrenheit(c)` → returns the converted temperature (`c * 9/5 + 32`).
+    - `is_temp_valid(temp, low=-50.0, high=60.0)` → returns `True` if temp is within range (inclusive). Use default parameters.
+    - `filter_valid(readings, low=-50.0, high=60.0)` → returns a list of readings where temp is valid.
+    - `summarize(readings)` → returns a dict `{"count": N, "min": X, "max": Y, "avg": Z}`.
+       Use running min/max (manual loops, not `min()`/`max()` built-ins).
+       Guard against empty list.
+2. `run_weather.py` — a script that:
+    - Imports `weather_utils`
+    - Defines at least 8 raw reading lines (include messy spacing, at least one out-of-range temp, and at least one Fahrenheit reading)
+    - Parses all readings using the module
+    - Filters to valid-range readings
+    - Prints: all parsed readings, valid-only readings, summary stats
+    - Converts one Celsius reading to Fahrenheit and prints it
+
+**Requirements:**
+- `weather_utils.py` must include an `if __name__ == "__main__":` guard with at least 3 test prints
+- All output comes from `run_weather.py` — the module must be silent on import
+- Use `round()` or `:.2f` for any float output
+
+**Constraint:** No `from...import` or `import...as`
+— those are tomorrow (W6D2).
+No `try/except/else/finally` full form — that’s W6D3.
+Basic `try/except ValueError` from W2D5 is allowed if you want to handle bad float conversion.
+
+**What Could Go Wrong?**
+What happens if a reading line has only 2 fields instead of 3?
+Which function breaks, and what error do you get?
+(Answer in a code comment.)
