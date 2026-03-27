@@ -1,18 +1,21 @@
-def is_non_empty(text):
-    if text.strip() != "":
-        return True
-    return False
+def compute_rate(count_text, total_text):
+    try:
+        count = int(count_text)
+        total = int(total_text)
+        rate = count / total
+    except ValueError as e:
+        print(f"  Bad number:{e}")
+        return None
+    except ZeroDivisionError:
+        print(f"  Division by zero: total={total_text}")
+        return None
+    else:
+        return round(rate, 4)
 
-    #TODO: return True if text is not blank after stripping
-    # Hint: predicate pattern from W5D5
-    pass
+pairs = [("25", "200"), ("10", "0"), ("abc", "50"), ("30", "300")]
+for c, t in pairs:
+    result = compute_rate(c, t)
+    print(f"  ({c},{t}) ->{result}")
 
-def is_int_like(text):
-    text = text.strip().lstrip("-")
-    if text.isdigit():
-        return True
-    return False
-    #TODO: return True if text converts to int safely
-    # Hint: .strip().lstrip("-") removes sign, then .isdigit() checks digits
-    # Note: .isdigit() alone rejects negatives — this workaround handles "-5"
+
     
