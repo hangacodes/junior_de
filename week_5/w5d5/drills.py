@@ -75,20 +75,26 @@
 #     return True
     
 
-'''### Drill 4 — `is_valid_score` (try/except + range check from W2D5)
+# '''### Drill 4 — `is_valid_score` (try/except + range check from W2D5)
 
-Write `is_valid_score(text: str) -> bool`. Sanitize, then try converting to `int`. Valid if conversion succeeds and value is 0–100 inclusive.
+# Write `is_valid_score(text: str) -> bool`. Sanitize, then try converting to `int`. Valid if conversion succeeds and value is 0–100 inclusive.
 
-**Hint:** Wrap `int(text.strip())` in `try/except ValueError`.'''
+# **Hint:** Wrap `int(text.strip())` in `try/except ValueError`.'''
 
-def is_valid_score(text: str) -> bool:
-    text = text.strip()
-    if text == "":
-        return False
-    try:
-        score = int(text)
-        if score >= 0 and score <= 100:
-            return True
-        else: return False
-    except ValueError:
-        return False
+# def is_valid_score(text: str) -> bool:
+#     text = text.strip()
+#     if text == "":
+#         return False
+#     try:
+#         score = int(text)
+#         if score >= 0 and score <= 100:
+#             return True
+#         else: return False
+#     except ValueError:
+#         return False
+
+def is_valid(age):
+    if age > 0:
+        return True
+    
+print(is_valid(3))
