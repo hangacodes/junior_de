@@ -1,0 +1,58 @@
+### 6D) Primary Deliverable (60–75 min)
+
+**Scenario:** Build a product inventory loader that safely parses pipe-separated product lines into clean records, tracks statistics, and handles multiple error types.
+
+**Input lines look like:**
+
+```python
+lines = [
+    "P001|Widget|9.99|50",
+    "P002|Gadget|BAD_PRICE|30",
+    "P003|Sprocket|4.50",
+    "P004|Bolt|0.75|200",
+    "|EmptyID|5.00|10",
+    "P005|Nut|2.25|150\n",
+    "P006|Washer|1.50|abc_qty",
+]
+```
+
+Format: `product_id|name|price|quantity`
+
+**Requirements:**
+
+```
+# Function wiring:
+#   parse_product(line) → dict or raises exception
+#   load_inventory(lines) → (products_list, stats_dict)
+#   print_report(products, stats) → None (prints formatted output)
+#
+#   load_inventory calls parse_product for each line
+#   main calls load_inventory then print_report
+```
+
+1. `parse_product(line)` → strips the line, splits on `|`, extracts 4 fields.
+Converts `price` to `float` and `quantity` to `int`.
+Returns a dict `{"id": "P001", "name": "Widget", "price": 9.99, "qty": 50}`.
+Let exceptions happen naturally — do NOT catch them here. Strip the product name.
+    - *Pattern: see Example 4 — parsing function that lets exceptions propagate*
+2. `load_inventory(lines)` → loops through lines, calls `parse_product` inside a `try` block.
+    - Catch `ValueError` (bad number) and `IndexError` (missing field)
+      with separate `except` blocks, each using `as e` to include the exception message in the log
+    - Use `else` to append good products
+    - Use `finally` to increment a `processed` counter
+    - Track stats: `{"processed": N, "loaded": N, "rejected": N}`
+    - Return `(products, stats)`
+3. `print_report(products, stats)` → prints a formatted report with:
+    - Stats summary
+    - Each product on its own line
+    - Total inventory value (`sum of price * qty` for all loaded products — use accumulator pattern from W3D4)
+4. Wrap the main flow in `if __name__ == "__main__":`.
+5. Include a broad `except Exception as e:` ONLY at the outermost level
+(around the call to your main logic), NOT inside `parse_product` or `load_inventory`.
+
+**What Could Go Wrong?**
+- What happens if ALL lines are invalid? Does your `print_report` crash on an empty products list? (Guard against it and answer in a code comment.)
+- The line `"|EmptyID|5.00|10"` has an empty `product_id` field. `parts[0].strip()`
+returns `""` — this is a valid string, so no exception is raised and the record loads with `id = ""`.
+Is that acceptable for your pipeline? Add a comment in `parse_product` noting this and decide whether to handle it.
+(No wrong answer — just be deliberate.)

@@ -1,13 +1,13 @@
 #Main
-import parse_product
+import week_6.w6d3.deliverable.parsing as parsing
 lines = [
-    "|Widget|9.99|50",
-    "|Gadget|BAD_PRICE|30",
-    "|Sprocket|4.50",
-    "|Bolt|0.75|200",
+    "P001|Widget|9.99|50",
+    "P002|Gadget|BAD_PRICE|30",
+    "P003|Sprocket|4.50",
+    "P004|Bolt|0.75|200",
     "|EmptyID|5.00|10",
-    "|Nut|2.25|150\n",
-    "|Washer|1.50|abc_qty",
+    "P005|Nut|2.25|150\n",
+    "P006|Washer|1.50|abc_qty",
 ]
 
 
@@ -19,7 +19,7 @@ def load_inventory(lines):
     for line in lines:
         
         try:
-            record = parse_product.parse_product(line)
+            record = parsing.parse_product(line)
         
         except ValueError as e:
             rejected += 1

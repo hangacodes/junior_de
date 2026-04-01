@@ -1,5 +1,6 @@
 #Product parser
 def parse_product(line):
+    line = line.strip()
     parts = line.split("|")
     product_id = parts[0].strip()
     name = parts[1].strip()
