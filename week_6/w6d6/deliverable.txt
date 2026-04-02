@@ -1,0 +1,27 @@
+### 6D) Primary deliverable — “Refactor W5D7 Order Processing Pipeline to OOP”
+
+**Scenario:** Take the flat, function-based order processing pipeline you built in W5D7 and redesign it using classes.
+The goal is NOT to add new features — it’s to see how OOP changes the structure.
+
+**Create `w6d6_order_pipeline_oop.py` with these classes:**
+
+**Class 1: `Order` (dataclass)**
+* Fields: `order_id: str`, `customer: str`, `product: str`, `quantity: int`, `unit_price: float`, `status: str`
+* `@property total` → `quantity * unit_price`
+* `@property is_high_value` → `total >= 50.0`
+* `__str__` → `"ORD001: Alice — Widget A x3 @ $12.50 = $37.50 [shipped]"`
+
+**Class 2: `OrderParser` (regular class)**
+* `__init__(self)` — no parameters needed (stateless parser)
+* `parse_line(self, line: str) -> Order or None` — splits on `"|"`,
+validates field count, converts qty/price, returns `Order` or `None` on failure
+* `parse_all(self, lines: list) -> tuple` — returns `(valid_orders, rejected_count)`
+
+**Class 3: `OrderReport` (regular class, composition)**
+* `__init__(self, orders: list)` — stores list of `Order` objects
+* `@property total_revenue` → sum of all order totals
+* `@property high_value_count` → count of high-value orders
+* `group_by_status(self)` → dict mapping status to list of orders
+* `status_summary(self)` → dict mapping status to `{"count": N, "revenue": X}`
+* `top_customer(self)` → tuple `(name, total_spent)`
+* `__str__` → the full formatted report (same content as W5D7’s output)
