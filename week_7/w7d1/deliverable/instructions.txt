@@ -1,0 +1,26 @@
+**Scenario:** You work at a weather station.
+Each day, temperature readings arrive as a list of numbers.
+You need to write a script that saves a daily summary report to one file (overwrite — always the latest),
+and appends each day’s key stat to a running history log (append — keeps growing).
+
+File name: `weather_writer.py`
+
+**Requirements:**
+
+1. Write a function `write_daily_report(path, station_id, readings)`
+   -that overwrites a file with a formatted report containing:
+   -station ID, number of readings, highest reading, lowest reading,
+   -and average reading (rounded to 1 decimal).
+2. Write a function `append_to_history(path, station_id, avg_reading)`
+    that appends one line to a history log file in the format `station_id=<id> avg=<avg>`.
+3. Both functions must use `with open(...)` and `encoding="utf-8"`.
+4. Test with: `station_id = "ST-042"` and `readings = [18, 22, 19, 25, 21, 17, 23]`.
+5. After writing, read both files back and print their contents to verify.
+
+
+
+**What Could Go Wrong:**
+- What happens if `readings` is an empty list?
+-Does your function crash on `max([])` or `min([])`? Add a guard.
+- What happens if you accidentally use `"w"` instead of `"a"` for the history log?
+What data do you lose?

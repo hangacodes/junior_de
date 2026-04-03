@@ -23,7 +23,7 @@ def write_daily_report(path, station_id, readings):
 
 
 station_id = "ST-042"
-readings = [18, 22, 19, 25, 21, 17, 23, 34, 49]
+readings = [18, 22, 19, 25, 21, 17, 23, 34, 49, 22, 10, 38, 28, 30 , 23, 34]
 average = round(sum(readings)) / len(readings)
 write_daily_report("week_7/w7d1/deliverable/daily_report.txt", station_id, readings )
 
