@@ -136,22 +136,22 @@
 #     print(f.read())
 
 
-'''**Drill 4: Safe reader function**
-File name: `safe_reader.py`
+# '''**Drill 4: Safe reader function**
+# File name: `safe_reader.py`
 
-Write a function `read_or_default(path, default_text)` that returns the file’s contents if it exists, or returns `default_text` if the file is missing.
-Test it with a file that exists and one that doesn’t.
+# Write a function `read_or_default(path, default_text)` that returns the file’s contents if it exists, or returns `default_text` if the file is missing.
+# Test it with a file that exists and one that doesn’t.
 
-Hint 1: Wrap `open()` in `try/except FileNotFoundError`.
-Hint 2: The function should `return` the text, not print it.'''
+# Hint 1: Wrap `open()` in `try/except FileNotFoundError`.
+# Hint 2: The function should `return` the text, not print it.'''
 
-def read_or_default(path, default_text):
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return f.read()
-    except FileNotFoundError:
-        return default_text
+# def read_or_default(path, default_text):
+#     try:
+#         with open(path, "r", encoding="utf-8") as f:
+#             return f.read()
+#     except FileNotFoundError:
+#         return default_text
     
-print(read_or_default("week_7/w7d1/log.txt", "idk"))
-print(read_or_default("week_7/w7d1/ghost.txt", "idk"))
+# print(read_or_default("week_7/w7d1/log.txt", "idk"))
+# print(read_or_default("week_7/w7d1/ghost.txt", "idk"))
 

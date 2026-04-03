@@ -1,0 +1,5 @@
+ST-042:
+Number or readings: 9
+Highest reading: 49
+Lowest reading: 17
+Average: 25.3
