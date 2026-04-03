@@ -1,0 +1,4 @@
+INVENTORY CHECK
+- screws: 500
+- bolts: 230
+- washers: 180

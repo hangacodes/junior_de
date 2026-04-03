@@ -1,0 +1,3 @@
+=== LOG START ===
+Run 1: processed 50 rows
+Run 2: processed 75 rows
