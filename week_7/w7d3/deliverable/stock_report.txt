@@ -1,0 +1,7 @@
+DAILY STOCK REPORT
+screws: qty=500 price=0.05
+bolts: qty=12 price=0.12
+washers: qty=3 price=0.03
+nails: qty=800 price=0.02
+brackets: qty=7 price=1.5
+Total items: 1322

@@ -1,0 +1,8 @@
+name,subject,grade
+Ada,Math,92
+Lin,Science,55
+Max,Math,78
+Zoe,Science,98
+Ray,Math,42
+
+Eve,Science,67

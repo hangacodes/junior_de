@@ -1,0 +1,4 @@
+PIPELINE STATUS
+rows_in: 500
+rows_out: 487
+errors: 13

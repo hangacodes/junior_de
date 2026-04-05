@@ -1,0 +1,4 @@
+ERROR connection refused
+INFO server started
+ERROR timeout on query
+WARN slow response

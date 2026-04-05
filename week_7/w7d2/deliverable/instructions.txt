@@ -1,0 +1,38 @@
+### 6D — Primary Deliverable
+
+**Scenario:** A school stores student grades in a text file.
+Each line follows the format `student_name,subject,grade` (e.g., `"Ada,Math,92\n"`).
+The first line is always a header. You need to build a function that reads this file and produces a summary.
+
+File name: `grade_summary.py`
+
+**Requirements:**
+
+1. Write a function `summarize_grades(path)` that returns a dictionary with:
+    - `"total_students"`: number of data lines (excluding header and blank lines)
+    - `"subject_counts"`: a dictionary mapping each subject to how many records it has
+    - `"highest"`: the line (stripped) with the highest grade
+    - `"failing"`: a list of stripped lines where grade < 60
+2. Must stream using `for line in f:` — do NOT use `read()` or `readlines()`
+3. Must use `readline()` to skip the header first
+4. Must strip every line and skip blank lines
+5. Must handle `FileNotFoundError` and return a safe empty summary
+6. Parse each line by splitting on `","` and converting the grade to `int`
+# Pattern: see Example 2 for the stream + strip + split + conditional pattern
+
+**Constraint:** No `csv` module, no `json` module, no list comprehensions — use `for` loops and `if` statements.
+
+**What Could Go Wrong:**
+- What if a line has fewer than 3 parts after splitting (malformed data)? Does your code crash on `parts[2]`?
+- What if the grade part isn’t a valid number? What error do you get, and how could you handle it?
+
+```python
+# Wiring: how the pieces connect
+# readline()        → consumes header line
+# for line in f:    → streams remaining lines
+# line.strip()      → removes \n
+# line.split(",")   → gives [name, subject, grade_str]
+# int(grade_str)    → converts for comparison
+# dict counting     → tracks subjects
+# list append       → collects failing lines
+```
