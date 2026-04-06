@@ -1,0 +1,11 @@
+{
+  "name": "Chest day",
+  "hours": 2,
+  "finished": false,
+  "exercises": [
+    "bench press",
+    "seated flies",
+    "pushups",
+    "incline bench"
+  ]
+}

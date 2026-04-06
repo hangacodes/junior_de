@@ -1,0 +1,55 @@
+{
+  "store": "City Books",
+  "last_updated": "2026-03-15",
+  "books": [
+    {
+      "title": "Data Pipelines Pocket Reference",
+      "author": "James Densmore",
+      "price": 29.99,
+      "stock": 3,
+      "genres": [
+        "tech",
+        "data"
+      ]
+    },
+    {
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "price": 42.0,
+      "stock": 0,
+      "genres": [
+        "tech",
+        "systems"
+      ]
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "Hunt and Thomas",
+      "price": 35.5,
+      "stock": 12,
+      "genres": [
+        "tech",
+        "career"
+      ]
+    },
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "price": 15.99,
+      "stock": 8,
+      "genres": [
+        "history",
+        "science"
+      ]
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "price": 14.99,
+      "stock": 0,
+      "genres": [
+        "self-help"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "db_host": "localhost",
+  "db_port": 5432,
+  "max_retries": 3,
+  "debug": false
+}

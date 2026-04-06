@@ -41,9 +41,3 @@ with open("week_7/w7d3/buffer_demo.txt", "r", encoding="utf-8") as f:
 # output:
 # Step 1 complete
 # Step 2 complete
-from datetime import datetime
-
-print(datetime.now())
-print(datetime.now())
-print(datetime.now())
-print(datetime.now())

@@ -1,0 +1,15 @@
+{
+  "store": "City Books",
+  "total_books": 5,
+  "total_value": 643.89,
+  "genres": {
+    "tech": 3,
+    "data": 1,
+    "systems": 1,
+    "career": 1,
+    "history": 1,
+    "science": 1,
+    "self-help": 1
+  },
+  "out_of_stock_count": 2
+}
