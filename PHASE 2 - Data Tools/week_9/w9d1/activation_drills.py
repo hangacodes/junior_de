@@ -16,6 +16,10 @@ import pandas as pd
 # df = pd.DataFrame(data)
 # #Value error because the lenght of the lists are not the same
 
-'''**A4 — Predict:** What does this print? Focus on what appears on the far-left.'''
-s = pd.Series([100, 200], index=["first", "second"])
-print(s)
+# '''**A4 — Predict:** What does this print? Focus on what appears on the far-left.'''
+# s = pd.Series([100, 200], index=["first", "second"])
+# print(s)
+# #2 rows with index= first with the value 100 and second one with index = second with the value 200
+# #I ALWAYS FORGET IT PRINTS THE dtype too automatically
+
+

@@ -1,0 +1,59 @@
+**Scenario:** Build `book_catalog.py` that reads a bookstore inventory from a JSON file,
+processes the nested data, and writes two output files: a summary report (JSON) and a restock alert list (JSON).
+
+**Input structure** (create this file in your script):
+catalog = {
+    "store": "City Books",
+    "last_updated": "2026-03-15",
+    "books": [
+        {"title": "Data Pipelines Pocket Reference", "author": "James Densmore", "price": 29.99, "stock": 3, "genres": ["tech", "data"]},
+        {"title": "Designing Data-Intensive Applications", "author": "Martin Kleppmann", "price": 42.00, "stock": 0, "genres": ["tech", "systems"]},
+        {"title": "The Pragmatic Programmer", "author": "Hunt and Thomas", "price": 35.50, "stock": 12, "genres": ["tech", "career"]},
+        {"title": "Sapiens", "author": "Yuval Noah Harari", "price": 15.99, "stock": 8, "genres": ["history", "science"]},
+        {"title": "Atomic Habits", "author": "James Clear", "price": 14.99, "stock": 0, "genres": ["self-help"]},
+    ]
+}
+
+
+**Requirements:**
+
+1. Write `catalog` to `catalog_input.json` with `json.dump()` and `indent=2`
+2. Write `load_catalog(path)` that reads the JSON file and returns the Python dict.
+   Handle `FileNotFoundError` by returning `None`
+3. Write `build_summary(catalog)` that returns a summary dict with:
+    - `"store"` — store name from catalog
+    - `"total_books"` — number of books
+    - `"total_value"` — sum of `price * stock` for all books (round to 2 decimal places)
+    - `"genres"` — a dict mapping each genre to the count of books in that genre
+        (a book with 2 genres counts in both). Use the counter pattern with `.get()`
+    - `"out_of_stock_count"` — number of books with `stock == 0`
+4. Write `find_restock_needed(catalog, threshold=5)`
+    that returns a list of dicts, each with `"title"`, `"author"`, `"stock"` 
+    — only for books where `stock < threshold`. Use default parameter for threshold
+5. Write the summary to `catalog_summary.json` and the restock list to `restock_alert.json`
+6. Read both output files back and print them to verify
+
+**Wiring block:**
+
+# load_catalog(path) → dict or None
+#   └── json.load() with FileNotFoundError handling
+#
+# build_summary(catalog) → dict
+#   ├── loops catalog["books"]
+#   ├── accumulates total_value (price * stock)
+#   ├── counts genres with .get() counter pattern
+#   └── counts out-of-stock
+#
+# find_restock_needed(catalog, threshold=5) → list[dict]
+#   └── loops catalog["books"], filters stock < threshold
+
+
+**Constraint:** No `pathlib` (W7D6), no `csv` module, no Pandas (W9+).
+No constructs from after W7D5.
+
+**What Could Go Wrong?** What happens if `catalog_input.json` doesn’t exist when you try to load it?
+Does `load_catalog` crash or return `None` safely?
+What if a book has no `"genres"` key — does `build_summary` crash?
+
+Git checkpoint: `git add -A && git commit -m 
+"W7D5: book catalog JSON processor with summary + restock alerts"`

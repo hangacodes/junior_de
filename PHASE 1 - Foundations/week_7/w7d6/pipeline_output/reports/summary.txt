@@ -1,0 +1,2 @@
+Pipeline ran successfully.
+Report saved to:week_7/w7d6/pipeline_output/reports/summary.txt

@@ -54,18 +54,23 @@ def find_restock_needed(catalog, threshold = 5):
 
 
 data = load_catalog("week_7/w7d5/deliverable/catalog_input.json")
-summary = build_summary(data)
-restock = find_restock_needed(data)
 
-with open("week_7/w7d5/deliverable/catalog_summary.json", "w") as f:
-    json.dump(summary, f, indent=2)
+if data is None:
+    print("ERROR: catalog file not found")
+else:
+    
+    summary = build_summary(data)
+    restock = find_restock_needed(data)
 
-with open("week_7/w7d5/deliverable/restock_alert.json", "w") as f:
-    json.dump(restock, f, indent=2)
+    with open("week_7/w7d5/deliverable/catalog_summary.json", "w") as f:
+        json.dump(summary, f, indent=2)
 
-with open("week_7/w7d5/deliverable/catalog_summary.json", "r") as f:
-    print(json.load(f))
+    with open("week_7/w7d5/deliverable/restock_alert.json", "w") as f:
+        json.dump(restock, f, indent=2)
 
-with open("week_7/w7d5/deliverable/restock_alert.json", "r") as f:
-    print(json.load(f))
+    with open("week_7/w7d5/deliverable/catalog_summary.json", "r") as f:
+        print(json.load(f))
+
+    with open("week_7/w7d5/deliverable/restock_alert.json", "r") as f:
+        print(json.load(f))
 

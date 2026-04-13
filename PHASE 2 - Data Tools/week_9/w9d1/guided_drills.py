@@ -46,20 +46,20 @@ import pandas as pd
 # inspect("first table", df1)
 # inspect("second table", df2)
 
-'''**B4 — Extract a Series and prove it's 1D**
-Create a DataFrame with at least 3 columns.
-Extract one column into a variable. Print the variable, its `type()`, and its `.shape`.
-Confirm shape is `(N,)` — one dimension, not two.
-- Hint: `type(my_series)` shows the class. A Series `.shape` is a 1-element tuple.'''
+# '''**B4 — Extract a Series and prove it's 1D**
+# Create a DataFrame with at least 3 columns.
+# Extract one column into a variable. Print the variable, its `type()`, and its `.shape`.
+# Confirm shape is `(N,)` — one dimension, not two.
+# - Hint: `type(my_series)` shows the class. A Series `.shape` is a 1-element tuple.'''
 
-my_series = {
-    "day": ["Mon", "Tue" , "Wed" ,"Thu", "Fri", "Sat", "Sun"], 
-    "workout": ["Legs - Glutes and femural focus", "Chest + biceps + abs", "Back and tris", "Rest day", "Legs - front focus", "Cardio and Abs", "Rest"]
-    }
+# my_series = {
+#     "day": ["Mon", "Tue" , "Wed" ,"Thu", "Fri", "Sat", "Sun"], 
+#     "workout": ["Legs - Glutes and femural focus", "Chest + biceps + abs", "Back and tris", "Rest day", "Legs - front focus", "Cardio and Abs", "Rest"]
+#     }
 
-my_dataframe = pd.DataFrame(my_series)
-weekdays = my_dataframe["day"]
-print(type(my_dataframe))
-print(my_dataframe)
-print(weekdays.dtype)
-print(weekdays.shape)
+# my_dataframe = pd.DataFrame(my_series)
+# weekdays = my_dataframe["day"]
+# print(type(my_dataframe))
+# print(my_dataframe)
+# print(weekdays.dtype)
+# print(weekdays.shape)

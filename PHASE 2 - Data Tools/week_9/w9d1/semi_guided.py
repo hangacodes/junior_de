@@ -43,13 +43,6 @@ print(current_stock.shape)
 #TODO 4: Build the SAME data as a dict of lists and create a second DataFrame.
 #   Use report() on it and verify it matches the first.
 
-raw_records = [
-    {"warehouse_id": "WH-N", "city": "Oulu", "capacity": 5000, "current_stock": 3200},
-    {"warehouse_id": "WH-S", "city": "Turku", "capacity": 3200, "current_stock": 3100},
-    {"warehouse_id": "WH-E", "city": "Joensuu", "capacity": 4100, "current_stock": 1800},
-    {"warehouse_id": "WH-W", "city": "Vaasa", "capacity": 2800, "current_stock": 2750},
-]
-
 modified_records = {"warehouse_id": ["WH-N", "WH-S", "WH-E", "WH-W"], "city": ["Oulu", "Turku", "Joensuu", "Vaasa"], "capacity":[5000, 3200,4100,2800], "current_stock":[3200,3100,1800,2750]}
 modified_ids = modified_records["warehouse_id"]
 second_df = pd.DataFrame(modified_records, index=modified_ids)
