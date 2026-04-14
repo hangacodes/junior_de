@@ -1,0 +1,33 @@
+### 6D — Primary Deliverable
+
+**Scenario:** 
+You manage a small public library.
+Build a script `w9d2_library_loader.py` that generates sample data files and reads them defensively into DataFrames.
+
+**Requirements:**
+
+1. Create `data/books.csv` (comma-delimited, with header)
+containing at least 5 books with columns: `book_id`
+(with leading zeros like `"0012"`),
+`title`, `genre`, `pages`, `checked_out`
+(values: `"yes"`, `"no"`, or `"?"` for unknown).
+Write this file using `with open(...)`.
+2. Create `data/members.json` containing at least 4 library members as a list of dicts with fields:
+`member_id`, `name`, `books_borrowed` (integer).
+Write using `json.dump()`.
+3. Write a function `load_csv_safely(path, dtype_map=None, na_tokens=None, sep=",", has_header=True)` that:
+    - Reads the CSV with the given parameters
+    - Handles `header=None` and accepts a `names` parameter when `has_header` is False
+    - Prints a trust report: file path, shape, head, dtypes
+    - Returns the DataFrame
+4. Use `load_csv_safely` to load `books.csv` with `book_id` forced to `str` and `"?"` normalized to `NaN`.
+5. Load `members.json` with `pd.read_json()` and print shape, head, dtypes.
+6. Add comments answering:
+“If `pages` contained the value `'N/A'` in one row and you forgot `na_values`, what type would that column become and why?”
+
+
+
+**What Could Go Wrong:** What happens if you pass `header=None` to a file that actually has a header row?
+What does the first row of the DataFrame look like? # Pattern: see Example 2
+
+Git checkpoint: `git add -A && git commit -m "W9D2 deliverable: library loader with defensive reading"`
