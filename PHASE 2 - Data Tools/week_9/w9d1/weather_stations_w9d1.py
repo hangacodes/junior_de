@@ -57,7 +57,14 @@ print("---Temperature Series---")
 print(temperatures)
 print(type(temperatures))
 
-#Question: What would go wrong if `wind_kmh` contained a string like `'N/A'` in one row? How would `dtypes` help you catch that?
-#'dtypes' would just modify the type to object
 
-#If wind_kmh key is completely missing from the dict - we get key error when we want to append nothing to a list. 
+'''If wind_kmh contained "N/A" in one row, pandas would infer the entire
+column as object instead of int64. dtypes would show "object"
+for wind_kmh, which is an early warning that something is wrong.
+'''
+''' What Could Go Wrong:
+If one dict is missing the "wind_kmh" key, pandas fills that cell
+with NaN (not-a-number) and may convert the column to float64.
+This is silent — only dtypes or head() would reveal it.
+
+BUT IN MY CASE : it would be KeyError when trying to append.'''

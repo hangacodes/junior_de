@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Ava",
+    "score": 88,
+    "city": "Helsinki"
+  },
+  {
+    "name": "Bo",
+    "score": 72,
+    "city": "Espoo"
+  },
+  {
+    "name": "Cal",
+    "score": 95,
+    "city": "Tampere"
+  },
+  {
+    "name": "Dan",
+    "score": 61,
+    "city": "Oulu"
+  }
+]

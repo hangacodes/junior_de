@@ -1,0 +1,17 @@
+[
+  {
+    "user_id": "u1",
+    "plan": "free",
+    "active": true
+  },
+  {
+    "user_id": "u2",
+    "plan": "pro",
+    "active": true
+  },
+  {
+    "user_id": "u3",
+    "plan": "free",
+    "active": false
+  }
+]

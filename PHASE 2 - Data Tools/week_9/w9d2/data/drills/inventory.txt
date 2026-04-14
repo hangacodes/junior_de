@@ -1,0 +1,3 @@
+Monitor|20|WH-N
+Macbook|69|WH-S
+Mouse|23|WH-N

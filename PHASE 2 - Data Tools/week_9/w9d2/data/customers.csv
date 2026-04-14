@@ -1,0 +1,4 @@
+customer_id,age,status
+001,34,active
+002,NA,inactive
+010,?,active

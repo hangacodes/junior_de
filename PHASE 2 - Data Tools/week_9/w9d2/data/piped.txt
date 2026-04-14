@@ -1,0 +1,3 @@
+name|age|city
+Ava|34|Helsinki
+Bo|29|Espoo

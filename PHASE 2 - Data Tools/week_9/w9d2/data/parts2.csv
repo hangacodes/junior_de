@@ -1,0 +1,5 @@
+part_id,weight_kg,status
+001,1.2,ok
+002,N/A,ok
+003,0.8,MISSING
+010,,ok

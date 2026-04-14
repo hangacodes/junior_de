@@ -1,0 +1,4 @@
+sensor,value,status
+sensorA,23.2,-
+sensorB,MISSING,-
+sensorC,23.8,ok
