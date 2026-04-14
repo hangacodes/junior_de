@@ -118,22 +118,22 @@ import pandas as pd
 # print(my_dataframe)
 
 
-'''**B4 — JSON round-trip**
-Write a list of 4 dicts to a JSON file using `json.dump()` (recall W7D5).
-Read it back with `pd.read_json()`. Print `shape`, `head`, and `dtypes`.
-- Hint: The JSON must be a flat list of same-shaped objects for `read_json` to produce a clean table.'''
+# '''**B4 — JSON round-trip**
+# Write a list of 4 dicts to a JSON file using `json.dump()` (recall W7D5).
+# Read it back with `pd.read_json()`. Print `shape`, `head`, and `dtypes`.
+# - Hint: The JSON must be a flat list of same-shaped objects for `read_json` to produce a clean table.'''
 
-records = [
-    {"name": "Ava", "score": 88, "city": "Helsinki"},
-    {"name": "Bo", "score": 72, "city": "Espoo"},
-    {"name": "Cal", "score": 95, "city": "Tampere"},
-    {"name": "Dan", "score": 61, "city": "Oulu"},
-]
+# records = [
+#     {"name": "Ava", "score": 88, "city": "Helsinki"},
+#     {"name": "Bo", "score": 72, "city": "Espoo"},
+#     {"name": "Cal", "score": 95, "city": "Tampere"},
+#     {"name": "Dan", "score": 61, "city": "Oulu"},
+# ]
 
-with open ("data/drills/peeps.json", "w") as f:
-    json.dump(records, f, indent=2)
+# with open ("data/drills/peeps.json", "w") as f:
+#     json.dump(records, f, indent=2)
 
-my_json_df = pd.read_json("data/drills/peeps.json")
-print(my_json_df.shape)
-print(my_json_df.head(2))
-print(my_json_df.dtypes)
+# my_json_df = pd.read_json("data/drills/peeps.json")
+# print(my_json_df.shape)
+# print(my_json_df.head(2))
+# print(my_json_df.dtypes)

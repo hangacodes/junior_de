@@ -1,0 +1,6 @@
+book_id,title,genre,pages,checked_out
+0001,The Martian,sci-fi,369,yes
+0012,Dune,sci-fi,412,no
+0023,Sapiens,non-fiction,443,yes
+0034,Atomic Habits,self-help,320,?
+0045,The Road,fiction,287,no

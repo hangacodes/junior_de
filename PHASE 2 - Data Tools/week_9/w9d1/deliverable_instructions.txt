@@ -1,0 +1,20 @@
+### 6D — Primary Deliverable
+
+**Scenario:** You work for a weather monitoring network.
+Build a script `w9d1_weather_stations.py` that creates, inspects, and compares DataFrames of station readings.
+
+**Requirements:**
+
+1. Build a DataFrame from a list of dicts containing at least 5 weather stations with fields:
+`station_id`, `city`, `temp_c` (temperature), `wind_kmh` (wind speed), `is_coastal` (boolean).
+2. Set `station_id` as the index.
+3. Build the same data as a dict of lists and create a second DataFrame. Verify both have identical shapes.
+4. Write a function `station_report(label, df)` that prints a labeled block: shape, head, tail, dtypes.
+5. Call `station_report` on both DataFrames.
+6. Extract the `temp_c` column as a Series. Print it and confirm its type is `Series` using `type()`.
+7. Add comments at the bottom answering: “What would go wrong if `wind_kmh` contained a string like `'N/A'` in one row? How would `dtypes` help you catch that?”
+
+
+**What Could Go Wrong:** What happens if one dict in your list of dicts is missing the `wind_kmh` key? What does the DataFrame show in that cell?
+
+Git checkpoint: `git add -A && git commit -m "W9D1 deliverable: weather station DataFrame inspector"`
