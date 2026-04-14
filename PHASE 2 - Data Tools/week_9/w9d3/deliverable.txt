@@ -1,0 +1,19 @@
+**Scenario:** You manage class scheduling for a fitness studio. Build a script `w9d3_fitness_selector.py` that creates a class schedule DataFrame and demonstrates all four selection techniques.
+
+**Requirements:**
+
+1. Create a DataFrame with at least 6 rows and columns:
+`class_name` (e.g., “Yoga”, “Spin”, “HIIT”), `instructor`, `time_slot` (e.g., “09:00”, “17:30”), `attendees` (integer), `full` (boolean — True if class is at capacity).
+Set the index to class codes like `"CLS-01"`, `"CLS-02"`, etc.
+2. **Output A:** Select the `class_name` and `instructor` columns together. Print with a heading.
+3. **Output B:** Select classes `CLS-02` through `CLS-04` using `.loc`. Print with a heading.
+4. **Output C:** Select the same rows using `.iloc` (positions). Print with a heading. Add a comment noting the slicing difference. # Pattern: see Example 2
+5. **Output D:** Create a boolean mask for classes that are NOT full (`full == False`). Use it to select `class_name`, `instructor`, and `attendees` for open classes. Print with a heading.
+6. **Safety update:** One full class just had a cancellation — use `.loc` with a mask or label to set one class’s `full` value from `True` to `False`. Print the updated DataFrame. # Pattern: see Example 4
+7. Add comments at the bottom answering: “What’s one way a selection bug could produce wrong attendance numbers in a weekly report? What quick check would catch it?”
+
+**Constraint:** No combining conditions with `&` or `|`, no `.query()`, no `sort_values()` — those come in W9D4.
+
+**What Could Go Wrong:** If your index contains integers and you write `.loc[2]` thinking “second row,” what actually happens? What should you use instead?
+
+Git checkpoint: `git add -A && git commit -m "W9D3 deliverable: fitness studio selection toolkit"`
