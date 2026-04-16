@@ -1,0 +1,29 @@
+### 6D — Primary Deliverable
+
+**Scenario:**
+ manage a vehicle fleet. Build a script `w9d4_fleet_report.py` that filters and sorts vehicle data to produce maintenance-priority reports.
+
+**Requirements:**
+
+1. Create a DataFrame with at least 8 vehicles with columns:
+`vehicle_id`, `type` (e.g., “van”, “truck”, “car”), `mileage_km` (integer), `fuel_type` (e.g., “diesel”, “electric”, “petrol”), `needs_service` (boolean).
+2. **Report A — Service queue:**
+-Filter to vehicles that need service, sorted by mileage descending (highest-mileage first).
+-Reset index. Print with a heading.
+3. **Report B — High-mileage diesels:**
+-Filter to diesel vehicles with mileage over 100,000 km.
+-Sort by mileage descending. Reset index.
+-Print with a heading. Use `.query()` for this filter.
+4. **Report C — Fleet summary by type:**
+-For each vehicle type, filter to that type and print the count and the vehicle with the highest mileage.
+-Wrap this in a function `type_summary(df, vehicle_type)`.
+-Call it for at least 2 types. # Pattern: see Example 4
+5. Add comments answering:
+-“If a filter condition is wrong (e.g., `>` instead of `>=`)
+what’s the easiest way to catch the mistake before sending the report?”
+
+
+
+**What Could Go Wrong:** What happens if you use `and` instead of `&` in a compound mask? What error message do you see?
+
+Git checkpoint: `git add -A && git commit -m "W9D4 deliverable: fleet maintenance report"`
