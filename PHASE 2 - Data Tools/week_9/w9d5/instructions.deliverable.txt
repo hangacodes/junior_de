@@ -1,0 +1,30 @@
+### 6D — Primary Deliverable
+
+**Scenario:**
+You manage a restaurant’s menu data.
+Build `w9d5_menu_cleanup.py` that transforms raw menu data into a clean, analysis-ready table.
+
+**Requirements:**
+
+1. Create a DataFrame with at least 6 menu items:
+`Item Name` (messy casing/spaces),
+`Category` (e.g., “appetizer”, “main”, “dessert” — messy),
+`Raw Cost` (with `$`), `Serving Size` (strings),
+`Allergens` (text). # Pattern: see Example 3
+2. Rename all columns to snake_case.
+3. Clean `item_name` and `category`: strip + lower.
+4. Convert `raw_cost` to float (remove `$`), `serving_size` to int.
+5. Add derived columns:
+`cost_per_serving` = raw_cost / serving_size,
+`menu_price` = cost_per_serving × 3.0 (standard markup),
+rounded to 2 decimal places with `round(df["menu_price"], 2)`.
+6. Drop original `raw_cost` column.
+7. Sort by `menu_price` descending, print final table and `df.columns.tolist()`.
+8. Comments answering: “If `serving_size` contained `'0'`,
+what would happen to `cost_per_serving`? How would you catch this?”
+
+**Constraint:** No `isnull()`/`fillna()`/`dropna()`, no `groupby()`, no `.apply()` — those come in Week 10.
+
+**What Could Go Wrong:** What happens if you try `.astype(float)` on a column that still has `$`?
+
+Git checkpoint: `git add -A && git commit -m "W9D5 deliverable: restaurant menu cleanup"`
