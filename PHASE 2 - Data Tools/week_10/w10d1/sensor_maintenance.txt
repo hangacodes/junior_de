@@ -1,0 +1,32 @@
+### 6D) Primary Deliverable — Sensor Maintenance Log Audit
+
+**Scenario:** You manage sensor equipment. Each row is a reading from a sensor — but some readings are missing (sensor offline), some locations are unknown, and some priority levels weren’t recorded.
+
+**Requirements:**
+
+1. Load the provided DataFrame (or create it from the dict below).
+2. Print a **null report** showing missing count and null rate (%) for every column.
+3. Apply a missing-data policy:
+    - `sensor_id` is required — drop rows where it’s missing.
+    - `location` — fill with `"UNASSIGNED"`.
+    - `reading` — the data is time-ordered by `timestamp`. Sort by `timestamp` first, then forward-fill readings.
+    - `priority` — fill with `"normal"`.
+4. Print a **before vs after** summary (rows before/after, null rates before/after for each column).
+5. Write a 5–8 line decision note as a comment explaining your choices.
+
+```python
+import pandas as pd
+
+sensor_log = pd.DataFrame({
+    "timestamp": [1, 2, 3, 4, 5, 6, 7, 8],
+    "sensor_id": ["S01", "S01", None, "S02", "S02", "S03", "S03", None],
+    "location": ["Floor1", None, "Floor2", "Floor2", None, None, "Floor3", "Floor3"],
+    "reading": [22.1, None, 21.8, None, None, 19.5, None, 20.0],
+    "priority": ["high", None, "low", None, "high", None, None, "low"]
+})
+```
+
+
+**What Could Go Wrong:** If sensor readings jump from 22°C to 5°C between consecutive rows, does forward-fill still make sense? When would you choose `fillna()` with a constant instead of `ffill()`?
+
+Git checkpoint: `git add -A && git commit -m "W10D1: sensor null audit + fix script with decision note"`

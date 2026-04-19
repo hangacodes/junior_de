@@ -1,0 +1,38 @@
+### 6D) Primary Deliverable — Event Ticket Cleaning Pipeline
+
+**Scenario:**
+You receive messy data from multiple ticket vendors for the same music events.
+Venue names are inconsistent, ticket prices have mixed formats, and some events appear multiple times from different vendors.
+
+**Requirements:**
+
+1. Load the provided DataFrame.
+2. Create a `venue_canon` column: trim + lowercase + remove periods + collapse multiple spaces with regex.
+3. Deduplicate by `event_id` — keep the last row (after sorting by `updated_at`).
+4. Clean `ticket_price`: remove `$` and `,`, convert to int row-by-row with `try/except`. Failed conversions become `None`.
+5. Compute a validation report:
+    - `rows_before`, `rows_after`
+    - `unique_venues_raw`, `unique_venues_canon`
+    - `price_failures` (count of rows that couldn’t convert)
+    - `price_null_rate` (fraction of price_num that is None)
+6. Print the report and the cleaned DataFrame.
+
+```python
+import pandas as pd
+
+tickets = pd.DataFrame({
+    "event_id": [201, 201, 202, 203, 203, 204],
+    "venue": [" Madison Sq.  Garden ", "madison sq. garden", " MSG ", "  The   Forum  ", "the forum", " Wembley "],
+    "ticket_price": ["$150", "$155", "COMP", "$75", "$80", "$2,500"],
+    "updated_at": ["2026-03-01", "2026-03-05", "2026-03-02", "2026-03-01", "2026-03-04", "2026-03-01"]
+})
+```
+
+
+
+**What Could Go Wrong:** 
+A new vendor sends prices in euros (`"€80"`) — your `str.replace("$", ...)` won’t catch it.
+What validation would detect this? How would you modify the pipeline?
+
+Git checkpoint: `git add -A && git commit -m "W10D2: event ticket cleaning pipeline with validation report"`
+
