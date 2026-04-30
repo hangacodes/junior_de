@@ -1,0 +1,36 @@
+### 6D) Primary Deliverable — Warehouse Shipment Report
+
+**Scenario:** You manage warehouse operations. 
+Each row is a shipment record — product category, weight, and quantity shipped from a specific warehouse.
+Some records are duplicated (re-scans), some categories are missing, and you need a per-warehouse summary.
+
+**Requirements:**
+
+1. Load the provided DataFrame.
+2. Fill missing `warehouse` values with `"UNASSIGNED"` and missing `category` with `"Uncategorized"`.
+3. Remove duplicate shipments by `shipment_id`.
+4. Produce a grouped report (group key = `warehouse`) with these metrics for `weight_kg`:
+    - `count`, `sum`, `mean`, `min`, `max`
+5. Print the report.
+6. Add a validation section that prints:
+    - Total rows before and after dedup
+    - Total weight before and after dedup (to check for inflation)
+    - Number of warehouses in the output
+
+```python
+import pandas as pd
+
+shipments = pd.DataFrame({
+    "shipment_id": [5001, 5002, 5002, 5003, 5004, 5005, 5006, 5007],
+    "warehouse": ["North", "North", "North", None, "South", "South", "East", "East"],
+    "category": ["Electronics", "Furniture", "Furniture", "Electronics", None, "Clothing", "Electronics", "Furniture"],
+    "weight_kg": [45.0, 120.5, 120.5, 30.0, 15.0, 8.5, 55.0, 200.0],
+    "quantity": [3, 1, 1, 5, 10, 20, 2, 1]
+})
+```
+
+**Constraint:** No `pd.merge()` (not yet taught). No `lambda`. No `pivot_table()`.
+
+**What Could Go Wrong:** If a warehouse name is inconsistent (e.g., `"north"` vs `"North "`), your report would split one warehouse into two groups. What cleaning step from W10D2 would prevent this?
+
+Git checkpoint: `git add -A && git commit -m "W10D3: warehouse shipment KPI report with validation"`

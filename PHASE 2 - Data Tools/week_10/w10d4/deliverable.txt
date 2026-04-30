@@ -1,0 +1,34 @@
+### 6D) Primary Deliverable — Student Grade Analysis
+
+**Scenario:** You manage academic records.
+Each row is a student’s grade in a course.
+You need a department-level summary, a pivot view, and per-student context showing how each grade compares to the department average.
+
+**Requirements:**
+
+1. Load the provided DataFrame.
+2. Fill missing `department` with `"Undeclared"`.
+3. Produce **Output 1** — a named-aggregation summary grouped by `["department", "course"]`: `avg_grade` (mean of grade), `student_count` (count), `total_credits` (sum of credits).
+4. Produce **Output 2** — a pivot table: `index="department"`, `columns="course"`, `values="grade"`, `aggfunc="mean"`.
+5. Produce **Output 3** — add transform columns to the original DataFrame: `dept_avg_grade` (department average) and `rank_in_dept` (rank by grade, descending, dense).
+6. Print all three outputs.
+
+```python
+import pandas as pd
+
+grades = pd.DataFrame({
+    "student_id": ["S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08"],
+    "department": ["CS", "CS", "CS", None, "Math", "Math", "Math", "CS"],
+    "course": ["Intro", "Intro", "Adv", "Intro", "Calc", "Stats", "Calc", "Adv"],
+    "grade": [85, 92, 78, 65, 90, 88, 72, 95],
+    "credits": [3, 3, 4, 3, 4, 3, 4, 4],
+})
+```
+
+**Constraint:** No `pd.merge()` or `pd.concat()` (not yet taught). No `lambda`.
+
+**What Could Go Wrong:** 
+If a department has only one student, the “rank” is always 1 and the “average” equals their grade.
+Is that misleading in a report? How would you flag single-student departments?
+
+Git checkpoint: `git add -A && git commit -m "W10D4: student grade analysis — summary, pivot, transform"`
